@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { ArrowDown, Clock } from "lucide-react";
+import { ArrowDown, Clock, Link2, LucideLink, Newspaper } from "lucide-react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import clsx from "clsx";
@@ -129,17 +129,17 @@ const ArticlesSection = () => {
                         backgroundRepeat: "no-repeat",
                       }}
                     >
-                      <div className="absolute bottom-2 right-2 p-2 items-center flex gap-1 bg-[#FBFCFC] rounded-3xl">
-                        <Clock className="w-[13.33px] h-[13.33px]" />
-                        <span className="text-[#8c8c8c] text-xs font-bold">
-                          {readTime}
+                      <div className="absolute top-2 right-2 p-2 items-center flex gap-1 bg-[#1746A2] text-white rounded-3xl">
+                        <LucideLink className="w-[13.33px] h-[13.33px]" />
+                        <span className=" text-xs font-bold">
+                          Course
                         </span>
                       </div>
-                      <div className="absolute top-2 left-2 p-2 font-bold flex gap-1 bg-[#EFF6FB96] rounded-3xl">
+                      {/* <div className="absolute top-2 left-2 p-2 font-bold flex gap-1 bg-[#EFF6FB96] rounded-3xl">
                         <span className="text-[#1746A2] text-xs">
                           {readTime}
                         </span>
-                      </div>
+                      </div> */}
                     </div>
                     <div className="flex items-center justify-between mt-2">
                       <span className="text-sm lg:text-base font-normal text-[#6C757D]">
@@ -169,9 +169,10 @@ const ArticlesSection = () => {
                           {readTime}
                         </span>
                       </div>
-                      <div className="absolute top-2 left-2 p-2 font-bold flex gap-1 bg-[#EFF6FB96] rounded-3xl">
-                        <span className="text-[#1746A2] text-xs">
-                          {readTime}
+                      <div className="absolute top-2 left-2 p-2 font-bold flex items-center gap-1 bg-[#1746A2] rounded-3xl">
+                        <Newspaper className="w-[13.33px] h-[13.33px] text-white" />
+                        <span className="text-white text-xs">
+                          Blog
                         </span>
                       </div>
                     </div>

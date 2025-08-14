@@ -58,7 +58,7 @@ export const academyCourses = [
     id: 1,
     title: "Sales Mastery",
     duration: "1hr:30min",
-    image: "/academy/academy1.svg",
+    image: "/academy/academy1.png",
     category: "Sales Mastery",
     description:
       "Learn how to market your business effectively with our marketing courses",
@@ -76,7 +76,7 @@ export const academyCourses = [
     id: 2,
     title: "Leadership",
     duration: "1hr:30min",
-    image: "/academy/academy2.svg",
+    image: "/academy/academy2.png",
     category: "Leadership",
     description: "Leadership for growth talents",
     instructor: {
@@ -93,7 +93,7 @@ export const academyCourses = [
     id: 3,
     title: "Growth Strategy",
     duration: "2hr:30min",
-    image: "/academy/academy3.svg",
+    image: "/academy/academy3.png",
     category: "Growth Strategy",
     description: "Growth Startegy Essentials",
     instructor: {

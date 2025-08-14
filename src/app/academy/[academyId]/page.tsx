@@ -38,6 +38,7 @@ export default function AcademyId() {
   }
   const id = Number(academyId);
   const course = academyCourses.find((c) => c.id === id);
+  console.log(course)
 
   if (!course) {
     return (
@@ -54,7 +55,7 @@ export default function AcademyId() {
     >
       {/* Left Image Preview */}
       <motion.div
-        className="relative rounded-2xl overflow-hidden shadow-lg cursor-pointer"
+        className="relative overflow-hidden cursor-pointer"
         variants={fadeSlideLeft}
         initial="hidden"
         whileInView="visible"
@@ -67,8 +68,8 @@ export default function AcademyId() {
           src={course.image}
           alt={`course preview`}
           width={800}
-          height={400}
-          className="w-full h-auto object-cover"
+          height={200}
+          className="w-full object-cover"
           priority
         />
         <div className="absolute bottom-4 right-4 bg-white text-sm px-3 py-1 rounded-full shadow font-medium select-none">

@@ -394,17 +394,25 @@ export const Academy = () => {
                 className="flex flex-col h-full"
               >
                 <div className="flex flex-col gap-1 mb-4">
-                  <div
-                    className="relative rounded-[16px] w-full aspect-[3/2] bg-cover bg-center"
-                    style={{ backgroundImage: `url(${course.image})` }}
-                  >
+                  <div className="relative rounded-[16px] w-full aspect-[3/2] overflow-hidden bg-white">
+                    <Image
+                      src={`/academy/academy${course.id}.png`}
+                      alt={course.title}
+                      fill
+                      className="object-contain"
+                    />
                     <div className="absolute bottom-2 right-2 py-1 pl-1 pr-2 flex gap-1 bg-[#FBFCFC] rounded-3xl">
                       <Clock className="w-[13.33px] h-[13.33px]" />
-                      <span className="text-[#8C8C8C] text-xs">{course.duration}</span>
+                      <span className="text-[#8C8C8C] text-xs">
+                        {course.duration}
+                      </span>
                     </div>
                   </div>
+
                   <div className="py-1 mt-2 w-fit px-4 border bg-[#D2E7FA4D] border-[#D2E7FA] text-[#1E88E5] rounded-3xl">
-                    <span className="text-sm lg:text-base font-normal">{course.category}</span>
+                    <span className="text-sm lg:text-base font-normal">
+                      {course.category}
+                    </span>
                   </div>
                 </div>
                 <span className="text-[#0E1426] text-sm lg:text-lg font-normal">
