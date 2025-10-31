@@ -84,7 +84,7 @@ const AboutHero = () => {
             className="flex flex-col lg:gap-8 gap-5 items-center justify-center"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: false, amount: 0.2 }}
             variants={{
               visible: {
                 transition: {

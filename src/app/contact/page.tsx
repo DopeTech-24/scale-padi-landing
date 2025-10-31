@@ -1,3 +1,4 @@
+// components/Contact.tsx
 "use client";
 
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowRight, Mail, Phone, Pin } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useInquiryMutation } from "@/hooks/useInquiry";
 
 const contactInfo = [
   { icon: Phone, text: "+23434583975" },
@@ -18,7 +20,7 @@ const formFields = [
   { name: "firstName", label: "First name", placeholder: "Enter your first name", type: "text" },
   { name: "lastName", label: "Last name", placeholder: "Enter your last name", type: "text" },
   { name: "email", label: "Email address", placeholder: "Enter your email", type: "email" },
-  { name: "info", label: "I am looking for information about:", placeholder: "Enter your message", type: "textarea" },
+  { name: "note", label: "I am looking for information about:", placeholder: "Enter your message", type: "textarea" },
 ];
 
 const containerVariants = {
@@ -45,7 +47,17 @@ export default function Contact() {
     firstName: "",
     lastName: "",
     email: "",
-    info: "",
+    note: "",
+  });
+
+  const inquiryMutation = useInquiryMutation({
+    onSuccess: (data) => {
+      console.log(data)
+      setFormData({ firstName: "", lastName: "", email: "", note: "" });
+    },
+    onError: (error) => {
+      console.error("Inquiry submission error:", error);
+    },
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -54,10 +66,7 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Replace with your actual form submission logic (API call etc)
-    console.log("Form submitted:", formData);
-    alert("Thank you! Your inquiry has been submitted.");
-    setFormData({ firstName: "", lastName: "", email: "", info: "" });
+    inquiryMutation.mutate(formData);
   };
 
   return (
@@ -118,6 +127,7 @@ export default function Contact() {
                       className="bg-[#F6F6F7] border border-[#D1DAEC75] rounded-2xl px-4 py-7 shadow-none w-full text-[#1A1A1A]"
                       rows={4}
                       required
+                      disabled={inquiryMutation.isPending}
                     />
                   ) : (
                     <Input
@@ -128,6 +138,7 @@ export default function Contact() {
                       onChange={handleChange}
                       className="bg-[#F6F6F7] border border-[#D1DAEC75] rounded-2xl px-4 py-7 shadow-none w-full text-[#1A1A1A]"
                       required
+                      disabled={inquiryMutation.isPending}
                     />
                   )}
                 </motion.div>
@@ -140,10 +151,25 @@ export default function Contact() {
               type="submit"
               className="flex w-fit gap-2 text-white bg-[#1746A2] hover:bg-[#123c8d]"
               aria-label="Submit contact form"
+              disabled={inquiryMutation.isPending}
             >
-              Submit <ArrowRight />
+              {inquiryMutation.isPending ? "Submitting..." : "Submit"}
+              {!inquiryMutation.isPending && <ArrowRight />}
             </Button>
           </div>
+
+          {/* Error Message */}
+          {inquiryMutation.isError && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="p-3 bg-red-50 border border-red-200 rounded-lg"
+            >
+              <p className="text-red-700 text-sm">
+                Error: {inquiryMutation.error.message}
+              </p>
+            </motion.div>
+          )}
         </form>
       </div>
     </div>

@@ -124,7 +124,7 @@ export default function HeroSection() {
         playsInline
         preload="auto"
         poster="/images/video-fallback.jpg"
-        className="rounded-xl shadow-xl w-full object-cover"
+        className="rounded-xl w-full object-cover"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeInOut" }}

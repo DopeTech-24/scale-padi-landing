@@ -87,13 +87,13 @@ export default function Navbar() {
 					For Experts
 				</Link>
 				<div className="flex items-center space-x-4">
-					<Button
+					{/* <Button
 						onClick={() => router.push("/wait-list")}
 						variant="outline"
 						className="border-[#1746A2] text-[#1746A2] hover:bg-[#1746A2] hover:text-white bg-transparent"
 					>
 						Join Waitlist
-					</Button>
+					</Button> */}
 					<Link href="https://business.scalepadi.com" target="_blank">
 						<Button className="bg-[#1746A2] hover:bg-[#1746A2] text-white">
 							For Business
