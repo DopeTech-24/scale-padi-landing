@@ -115,11 +115,18 @@ export default function Navbar() {
 			</div>
 
 			{/* Mobile nav */}
-			<div className="flex lg:hidden items-center space-x-4">
+			<div className="flex lg:hidden items-center">
 				<Link href="https://business.scalepadi.com" target="_blank">
-					<Button className="bg-[#1746A2] hover:bg-[#1746A2] text-white">
+					<Button className="bg-[#1746A2] hover:bg-[#1746A2] text-white text-xs px-2 py-1">
 						For Business
 					</Button>
+				</Link>
+				<Link
+					href="https://expert.scalepadi.com"
+					target="_blank"
+					className="text-gray-700 hover:text-[#1746A2] transition-colors text-xs px-2 py-1"
+				>
+					For Experts
 				</Link>
 				<button
 					onClick={() => setIsOpen(true)}
