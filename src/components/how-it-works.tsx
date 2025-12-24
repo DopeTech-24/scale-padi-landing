@@ -15,9 +15,9 @@ const steps = [
 		video: "/videos/how-works1.mp4",
 	},
 	{
-		title: "Get tailored strategies",
+		title: "Get tailored growth engine",
 		description:
-			"Receive a vetted strategy with expert-matched talent and tools, activated within 72 hours.",
+			"Receive a vetted strategy and recommended experts, tools, activated within 72 hours.",
 		video: "/videos/how-works2.mp4",
 	},
 	{
