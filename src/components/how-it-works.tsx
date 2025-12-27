@@ -6,6 +6,8 @@ import { Button } from "./ui/button";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useInView } from "framer-motion";
+import { Select, SelectContent, SelectItem, SelectTrigger } from "./ui/select";
+import GetStartedDropdown from "./getstarted";
 
 const steps = [
 	{
@@ -44,7 +46,7 @@ export default function HowItWorks() {
 	return (
 		<section
 			id="how-it-works"
-			className="relative flex flex-col lg:flex-row items-center gap-4 mt-6 lg:py-16 py-8 bg-gradient-to-br from-[#e5efff] via-white to-[#f9faff] z-0"
+			className="relative flex flex-col lg:flex-row items-center gap-4 mt-6 lg:py-16 py-8 bg-linear-to-br from-[#e5efff] via-white to-[#f9faff] z-0"
 		>
 			{/* Glow background */}
 			<div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -60,7 +62,7 @@ export default function HowItWorks() {
 					transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
 					className="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6"
 				>
-					<span className="inline-block bg-clip-text text-transparent bg-gradient-to-r from-[#1746A2] to-[#FCCE37] animate-gradient-x">
+					<span className="inline-block bg-clip-text text-transparent bg-linear-to-r from-[#1746A2] to-[#FCCE37] animate-gradient-x">
 						How ScalePadi Works
 					</span>
 				</motion.h2>
@@ -126,29 +128,17 @@ export default function HowItWorks() {
 						</motion.div>
 					))}
 
-					<motion.div
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.95 }}
-						className="mt-6"
-					>
-						<Button
-							onClick={() => router.push("/wait-list")}
-							className="flex items-center gap-2 font-semibold bg-[#1746A2] text-white px-6 py-2 rounded-md transition-all duration-300 shadow-lg hover:shadow-[#1746A2]/40"
-						>
-							Get Started for Free
-							<ArrowRight size={18} />
-						</Button>
-					</motion.div>
+					<GetStartedDropdown />
 				</div>
 			</div>
 
 			{/* Right: Video with Motion */}
 			<div
-				className={`hidden lg:flex w-full lg:w-1/2 relative z-10 justify-center items-center rounded-bl-[32px] rounded-tl-[8px] rounded-tr-[8px] overflow-hidden h-[580px] transition-colors duration-700 ${
+				className={`hidden lg:flex w-full lg:w-1/2 relative z-10 justify-center items-center rounded-bl-4xl rounded-tl-lg rounded-tr-lg overflow-hidden h-[580px] transition-colors duration-700 ${
 					active === 0 ? "bg-[#FCCE37]" : "bg-[#1746A2]"
 				}`}
 			>
-				<div className="rounded-[8px] ml-10 mt-10 -mb-10 shadow-2xl h-[580px] w-[90%] overflow-hidden">
+				<div className="rounded-lg ml-10 mt-10 -mb-10 shadow-2xl h-[580px] w-[90%] overflow-hidden">
 					<AnimatePresence mode="wait">
 						<motion.video
 							key={steps[active].video}
