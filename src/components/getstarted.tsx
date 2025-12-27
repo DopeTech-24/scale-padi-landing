@@ -22,7 +22,7 @@ export default function GetStartedDropdown({
 	};
 
 	return (
-		<DropdownMenu>
+		<DropdownMenu modal={false}>
 			<DropdownMenuTrigger asChild>
 				<button
 					className={`flex items-center gap-2 cursor-pointer font-semibold ${bg} ${text_color} px-6 py-2 rounded-md transition-all duration-300 shadow-lg hover:shadow-[#1746A2]/40`}
@@ -32,7 +32,13 @@ export default function GetStartedDropdown({
 				</button>
 			</DropdownMenuTrigger>
 
-			<DropdownMenuContent align="start" className="w-48 rounded-md">
+			<DropdownMenuContent
+				align="start"
+				side="bottom"
+				sideOffset={8}
+				className="z-50 w-48 rounded-md bg-white"
+				forceMount
+			>
 				<DropdownMenuItem
 					className="cursor-pointer hover:bg-[#FCCE37] text-[#1A1A1A]"
 					onClick={() =>

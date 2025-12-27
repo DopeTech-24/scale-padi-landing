@@ -6,6 +6,7 @@ import CountUp from "react-countup";
 import { useRouter } from "next/navigation";
 import { motion, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import GetStartedDropdown from "./getstarted";
 
 const fadeUpVariant = {
 	hidden: { opacity: 0, y: 20 },
@@ -15,7 +16,7 @@ const fadeUpVariant = {
 		transition: {
 			delay: custom * 0.3,
 			duration: 0.6,
-			ease: "easeOut",
+			ease: [0.25, 0.46, 0.45, 0.94],
 		},
 	}),
 };
@@ -123,21 +124,13 @@ const AboutHero = () => {
 							</span>
 						</motion.div>
 
-						<motion.div
-							className="flex items-start w-full"
-							variants={fadeUpVariant}
-							custom={1}
-						>
-							<Button
-								onClick={() => router.push("/wait-list")}
-								className="flex font-semibold w-fit items-center gap-2 bg-[#FCCE37] text-black hover:bg-yellow-400 transition-colors duration-300"
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}
-							>
-								Join our Waitlist
-								<ArrowRight />
-							</Button>
-						</motion.div>
+						<div className="flex items-start w-full">
+							<GetStartedDropdown
+								text="Get started"
+								bg="bg-[#FCCE37]"
+								text_color="text-black"
+							/>
+						</div>
 					</motion.div>
 				</motion.div>
 

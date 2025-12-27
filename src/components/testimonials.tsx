@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
+import GetStartedDropdown from "./getstarted";
 
 const Testimonials = () => {
 	const [currentIndex, setCurrentIndex] = useState(0);
@@ -303,29 +304,7 @@ const Testimonials = () => {
 						</motion.div>
 					</motion.div>
 				</div>
-				<motion.div
-					whileHover={{ scale: 1.05 }}
-					whileTap={{ scale: 0.95 }}
-				>
-					<Button
-						onClick={() => router.push("/wait-list")}
-						className="flex items-center gap-2 bg-[#1746A2] text-white"
-					>
-						<motion.span
-							animate={{
-								x: [0, 5, 0],
-								transition: {
-									repeat: Infinity,
-									repeatType: "reverse",
-									duration: 2,
-								},
-							}}
-						>
-							Get Started Now
-						</motion.span>
-						<ArrowRight />
-					</Button>
-				</motion.div>
+				<GetStartedDropdown text="Get Started Now" />
 			</motion.div>
 		</div>
 	);
