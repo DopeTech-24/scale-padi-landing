@@ -2,7 +2,7 @@
 import axios, { AxiosError, AxiosInstance, InternalAxiosRequestConfig } from "axios";
 
 const axiosClient: AxiosInstance = axios.create({
-    baseURL: "https://scale-padi.onrender.com/api/v1",
+    baseURL: "https://scale-padi-xc76.onrender.com/api/v1",
     withCredentials: true,
     timeout: 5000000
 })
