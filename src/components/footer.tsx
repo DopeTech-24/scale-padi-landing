@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 import GetStartedDropdown from "./getstarted";
+import { XIcon } from "./XIcon";
 
 const navigation = [
 	{ title: "How ScalePadi works", href: "#" },
@@ -61,13 +62,20 @@ export default function Footer() {
 							<div className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center">
 								<Facebook className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
 							</div>
-							<div className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center">
-								<Twitter className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
+							<div
+								onClick={() =>
+									router.push(
+										"https://x.com/PadiScale98709?s=20",
+									)
+								}
+								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
+							>
+								<XIcon className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
 							</div>
 							<div
 								onClick={() =>
 									router.push(
-										"https://www.linkedin.com/company/growthpadi/"
+										"https://www.linkedin.com/company/scale-padi/",
 									)
 								}
 								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
@@ -75,11 +83,11 @@ export default function Footer() {
 								<Linkedin className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
 							</div>
 							<div
-								onClick={() =>
-									router.push(
-										"https://www.instagram.com/scalepadi?igsh=Y2lheGZvMjdoYTlu"
-									)
-								}
+								// onClick={() =>
+								// 	router.push(
+								// 		"https://www.instagram.com/scalepadi?igsh=Y2lheGZvMjdoYTlu",
+								// 	)
+								// }
 								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
 							>
 								<Instagram className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
@@ -132,12 +140,12 @@ export default function Footer() {
 								Contact
 							</h4>
 							<div className="flex flex-col text-center items-center justify-center md:items-start md:justify-start gap-3 md:gap-7 text-sm text-blue-100">
-								<p>+2349073538138</p>
-								<p>info@scalepadi.com</p>
+								<p>+2349134138999</p>
+								<p>support@scalepadi.com</p>
 								<p>
-									No 26 Abu Lamidat street
+									13 Akinbola Close Surulere
 									<br />
-									Abuja, Nigeria
+									Lagos, Nigeria
 								</p>
 							</div>
 						</div>
