@@ -92,6 +92,12 @@ export default function Navbar() {
 					Contact
 				</Link>
 				<Link
+					href="/faq"
+					className="text-gray-700 hover:text-[#1746A2] transition-colors"
+				>
+					FAQ
+				</Link>
+				<Link
 					href="https://expert.scalepadi.com"
 					target="_blank"
 					className="text-gray-700 hover:text-[#1746A2] transition-colors"
@@ -220,6 +226,13 @@ export default function Navbar() {
 							className="text-gray-700 hover:text-[#1746A2]"
 						>
 							Contact
+						</Link>
+						<Link
+							onClick={() => setIsOpen(false)}
+							href="/faq"
+							className="text-gray-700 hover:text-[#1746A2]"
+						>
+							FAQ
 						</Link>
 						<Link
 							href="https://expert.scalepadi.com"
