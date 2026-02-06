@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
 import GetStartedDropdown from "./getstarted";
 
-const Testimonials = () => {
+const Testimonials = ({ filterBy }: { filterBy: string }) => {
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const controls = useAnimation();
 	const sliderRef = useRef<HTMLDivElement>(null);
@@ -19,40 +19,81 @@ const Testimonials = () => {
 
 	const testimonials = [
 		{
-			name: "Oreofe Ojurereoluwa Daniel",
-			title: "Partnerships Lead Mytherapist.ng",
+			name: "Hilary-Ugeh Chidinma",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "Working with Growthpadi has been a great experience...",
+			message:
+				"For me, joining Scale Padi Academy has been such a rewarding experience. The classes are always scheduled at times that make it easy for everyone to stay consistent without feeling overwhelmed.",
 		},
 		{
-			name: "Tamaraefieye Isaac",
-			title: "Founder Kartam Financial",
+			name: "Chidi Ugwu",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "I am the founder of Kartam Financial...",
+			message:
+				"Now I feel confident to pursue opportunities in Business Development, growth marketing and partnerships for any organisation I work for. The ScalePadi Academy is not just about educating, but more about impacting its student to be able to make definite and meaningful change in any sector.",
 		},
 		{
-			name: "Oreofe Ojurereoluwa Daniel",
-			title: "Partnerships Lead, Mytherapist.ng",
+			name: "Nicholas Miracle",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "Working with Growthpadi has been a great experience...",
+			message:
+				"You’ve been an amazing community manager I’m not sugarcoating nothing. Your calm, brilliance and patience just sets the tune. Then your jokes again. The blend is just so comforting. There’s that feeling of knowing Mariam would give me a solution.",
 		},
 		{
-			name: "Oreofe Ojurereoluwa Daniel",
-			title: "Partnerships Lead Mytherapist.ng",
+			name: "Solomon Favour",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "Working with Growthpadi has been a great experience...",
+			message:
+				"I feel supported. Classes has been great. I have been learning a lot from the videos I have been rewatching and can't wait to put them into practice",
 		},
 		{
-			name: "Tamaraefieye Isaac",
-			title: "Founder Kartam Financial",
+			name: "Blessing Joel",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "I am the founder of Kartam Financial...",
+			message:
+				"the Academy is doing a great job and I'm enjoying every experience that comes with it and thank you for alway listening to me 😊",
 		},
 		{
-			name: "Oreofe Ojurereoluwa Daniel",
-			title: "Partnerships Lead, Mytherapist.ng",
+			name: "Ayobami Oke",
+			title: "ScalePadi Academy",
 			image: "",
-			message: "Working with Growthpadi has been a great experience...",
+			message:
+				"It has been an awesome experience, the way you and the teachers carry us along is amazing. I did not know I could be this committed to it when I started but I thank God 🙏🏾",
+		},
+		{
+			name: "Ufuoma Peace",
+			title: "ScalePadi Academy",
+			image: "",
+			message:
+				"The Academy has been amazing. The topics and tutor have been amazing also. Most of them handle their topics effortlessly and try their best to simplify it for better understanding.",
+		},
+		{
+			name: "Jimoh-Jubril Khairat",
+			title: "ScalePadi Academy",
+			image: "",
+			message:
+				"I'm honestly glad I made a hard but important choice to put in for this course. Presently I don't have anything negative feedback, it's been so excellent.",
+		},
+		{
+			name: "Winifred",
+			title: "ScalePadi Academy",
+			image: "",
+			message:
+				"So far it’s good 😊, challenging as I’m new to some things but with the little knowledge I have of CRM, lead generation and some tools it’s quite understand. Course rep Mariam, you’re amazing 🤩, accommodating, supportive. I love you 😍 for all you do, Thank you 😊. Thank You growthpadi & scalepadi academy.",
+		},
+		{
+			name: "Shyaka Damour",
+			title: "ScalePadi Academy",
+			image: "",
+			message:
+				"The first half of the academy has been really good so far. Classes have been engaging, and I feel well-supported in the  community. You've been doing a fantastic job as a community manager. Everything's going smoothly, and I don't have any complaints. Thanks for caring and being approachable. Have a great day too",
+		},
+		{
+			name: "Raphel",
+			title: "Mytherapist.ng",
+			image: "",
+			message:
+				"The expert we received from ScalePadi has been really amazing, like exceptionally efficient.",
 		},
 	];
 
@@ -91,14 +132,29 @@ const Testimonials = () => {
 	};
 
 	const nextTestimonial = () => {
-		const nextIndex = (currentIndex + 1) % testimonials.length;
+		const nextIndex =
+			(currentIndex + 1) %
+			testimonials.filter((test) => {
+				if (filterBy === "ScalePadi Academy") {
+					return test.title === "ScalePadi Academy";
+				} else {
+					return test.title !== "ScalePadi Academy";
+				}
+			}).length;
 		setCurrentIndex(nextIndex);
 		scrollToTestimonial(nextIndex);
 	};
 
 	const prevTestimonial = () => {
 		const prevIndex =
-			(currentIndex - 1 + testimonials.length) % testimonials.length;
+			(currentIndex - 1 + testimonials.length) %
+			testimonials.filter((test) => {
+				if (filterBy === "ScalePadi Academy") {
+					return test.title === "ScalePadi Academy";
+				} else {
+					return test.title !== "ScalePadi Academy";
+				}
+			}).length;
 		setCurrentIndex(prevIndex);
 		scrollToTestimonial(prevIndex);
 	};
@@ -166,7 +222,15 @@ const Testimonials = () => {
 						transition={{ type: "spring", stiffness: 500 }}
 					>
 						{String(currentIndex + 1).padStart(2, "0")} /{" "}
-						{String(testimonials.length).padStart(2, "0")}
+						{String(
+							testimonials.filter((test) => {
+								if (filterBy === "ScalePadi Academy") {
+									return test.title === "ScalePadi Academy";
+								} else {
+									return test.title !== "ScalePadi Academy";
+								}
+							}).length,
+						).padStart(2, "0")}
 					</motion.span>
 
 					<motion.button
@@ -196,56 +260,65 @@ const Testimonials = () => {
 						animate={controls}
 						className="flex gap-7 items-start justify-start min-w-fit"
 					>
-						{testimonials.map((testimonial, index) => (
-							<motion.div
-								key={index}
-								className={`p-8 rounded-2xl border flex flex-col gap-8 border-[#D1DAEC] bg-white w-[363px] h-[300px] shrink-0 ${
-									index % 2 !== 0 ? "mt-14" : "mt-0"
-								}`}
-								animate={{
-									opacity:
-										Math.abs(index - currentIndex) < 2
-											? 1
-											: 0.6,
-									scale: index === currentIndex ? 1.05 : 1,
-								}}
-								transition={{ duration: 0.3 }}
-								whileHover={{ scale: 1.02 }}
-							>
-								<span className="text-[#1A1A1A] font-medium text-base text-left line-clamp-5">
-									{testimonial.message}
-								</span>
-								<div className="flex items-center gap-3.5 mt-auto">
-									<div className="w-[70px] h-[70px] flex items-center justify-center rounded-full overflow-hidden bg-gray-200">
-										{testimonial.image ? (
-											<Image
-												src={testimonial.image}
-												alt={testimonial.name}
-												width={70}
-												height={70}
-												className="w-full h-full object-cover"
-											/>
-										) : (
-											<Image
-												src={`data:image/png;base64,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`}
-												alt={testimonial.name}
-												width={70}
-												height={70}
-												className="w-full h-full object-cover"
-											/>
-										)}
+						{testimonials
+							.filter((test) => {
+								if (filterBy === "ScalePadi Academy") {
+									return test.title === "ScalePadi Academy";
+								} else {
+									return test.title !== "ScalePadi Academy";
+								}
+							})
+							.map((testimonial, index) => (
+								<motion.div
+									key={index}
+									className={`p-8 rounded-2xl border flex flex-col gap-8 border-[#D1DAEC] bg-white w-[363px] h-[300px] shrink-0 ${
+										index % 2 !== 0 ? "mt-14" : "mt-0"
+									}`}
+									animate={{
+										opacity:
+											Math.abs(index - currentIndex) < 2
+												? 1
+												: 0.6,
+										scale:
+											index === currentIndex ? 1.05 : 1,
+									}}
+									transition={{ duration: 0.3 }}
+									whileHover={{ scale: 1.02 }}
+								>
+									<span className="text-[#1A1A1A] font-medium text-base text-left line-clamp-5">
+										{testimonial.message}
+									</span>
+									<div className="flex items-center gap-3.5 mt-auto">
+										<div className="w-[70px] h-[70px] flex items-center justify-center rounded-full overflow-hidden bg-gray-200">
+											{testimonial.image ? (
+												<Image
+													src={testimonial.image}
+													alt={testimonial.name}
+													width={70}
+													height={70}
+													className="w-full h-full object-cover"
+												/>
+											) : (
+												<Image
+													src={`data:image/png;base64,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`}
+													alt={testimonial.name}
+													width={70}
+													height={70}
+													className="w-full h-full object-cover"
+												/>
+											)}
+										</div>
+										<div className="flex flex-col gap-1">
+											<span className="font-bold text-[16px] text-left">
+												{testimonial.name}
+											</span>
+											<span className="text-base text-left font-medium text-[#878C91]">
+												{testimonial.title}
+											</span>
+										</div>
 									</div>
-									<div className="flex flex-col gap-1">
-										<span className="font-bold text-[16px] text-left">
-											{testimonial.name}
-										</span>
-										<span className="text-base text-left font-medium text-[#878C91]">
-											{testimonial.title}
-										</span>
-									</div>
-								</div>
-							</motion.div>
-						))}
+								</motion.div>
+							))}
 					</motion.div>
 				</div>
 			</div>

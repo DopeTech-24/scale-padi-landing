@@ -11,7 +11,7 @@ const Page = () => {
 			<AcademyHero />
 			<AcademyWorks />
 			<Academy onlyCourses={true} />
-			<Testimonials />
+			<Testimonials filterBy="ScalePadi Academy" />
 			<FAQ faqs={faqs.slice(0, 5)} />
 		</div>
 	);
