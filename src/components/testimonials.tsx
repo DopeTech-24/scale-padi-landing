@@ -143,7 +143,7 @@ const Testimonials = () => {
 					Testimonials
 				</motion.span>
 				<motion.span className="md:text-base text-sm text-center">
-					Here are what our successful customer and talent are saying
+					Here are what our customer and talent are saying
 				</motion.span>
 			</motion.div>
 
@@ -260,7 +260,7 @@ const Testimonials = () => {
 			>
 				<div className="pattners flex flex-col lg:flex-row gap-8 lg:gap-16 items-center">
 					<motion.span className="text-[#010205] text-left w-[190px] font-semibold text-base">
-						Trusted by the world's biggest brands
+						Trusted by our partners
 					</motion.span>
 					<motion.div className="w-full overflow-hidden">
 						<motion.div
@@ -278,15 +278,15 @@ const Testimonials = () => {
 							}}
 						>
 							{[
-								"afrinolly.png",
+								"kartam.png",
+								"Mytherapist.png",
 								"colad.png",
 								"onehealth.jfif",
-								"kartam.png",
-								"ibomsoups.png",
 								"Meekfi.svg",
-								"Mytherapist.png",
-								"retro.png",
+								"ibomsoups.png",
+								"afrinolly.png",
 								"s&s.jpg",
+								"retro.png",
 							].map((logo, i) => (
 								<motion.div
 									key={i}
