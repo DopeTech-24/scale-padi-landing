@@ -9,7 +9,7 @@ import { QueryProvider } from "@/components/QueryProvider";
 export const metadata: Metadata = {
 	title: "ScalePadi – Business Growth & Career Acceleration",
 	description:
-		"ScalePadi helps businesses scale faster and trains professionals in business development and growth roles.",
+		"ScalePadi is Africa's strongest AI enabled growth engine helping business scale smartly with technology, strategy and  talent",
 	openGraph: {
 		title: "ScalePadi",
 		description:
