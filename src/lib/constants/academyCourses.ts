@@ -50,62 +50,62 @@
 //   },
 // ];
 
-
-
 // academyData.ts
 export const academyCourses = [
-  {
-    id: 1,
-    title: "Sales Mastery",
-    duration: "1hr:30min",
-    image: "/academy/academy1.png",
-    category: "Sales Mastery",
-    description:
-      "Learn how to market your business effectively with our marketing courses",
-    instructor: {
-      name: "David Eze Peters",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
-    rating: 5,
-    participants: 35,
-  },
-  {
-    id: 2,
-    title: "Leadership",
-    duration: "1hr:30min",
-    image: "/academy/academy2.png",
-    category: "Leadership",
-    description: "Leadership for growth talents",
-    instructor: {
-      name: "Jane Doe",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "https://drive.google.com/file/d/1suPWMS5CzLG_TpTmgQMOVPtb2_ncOYPf/view?usp=sharing",
-    rating: 5,
-    participants: 38,
-  },
-  {
-    id: 3,
-    title: "Growth Strategy",
-    duration: "2hr:30min",
-    image: "/academy/academy3.png",
-    category: "Growth Strategy",
-    description: "Growth Startegy Essentials",
-    instructor: {
-      name: "Jane Doe",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "#",
-    rating: 4.5,
-    participants: 25,
-  },
+	{
+		id: 1,
+		title: "Sales Mastery",
+		duration: "1hr:30min",
+		image: "/academy/academy1.png",
+		category: "Sales Mastery",
+		description:
+			"Learn how to market your business effectively with our marketing courses",
+		instructor: {
+			name: "David Eze Peters",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "3hrs, 30min",
+		curriculumLink:
+			"https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
+		rating: 5,
+		participants: 35,
+	},
+	{
+		id: 2,
+		title: "Leadership",
+		duration: "1hr:30min",
+		image: "/academy/academy2.png",
+		category: "Leadership",
+		description: "Leadership for growth talents",
+		instructor: {
+			name: "Jane Doe",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "3hrs, 30min",
+		curriculumLink:
+			"https://drive.google.com/file/d/1suPWMS5CzLG_TpTmgQMOVPtb2_ncOYPf/view?usp=sharing",
+		rating: 5,
+		participants: 38,
+	},
+	{
+		id: 3,
+		title: "Growth Strategy",
+		duration: "2hr:30min",
+		image: "/academy/academy3.png",
+		category: "Growth Strategy",
+		description: "Growth Strategy Essentials",
+		instructor: {
+			name: "Jane Doe",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "3hrs, 30min",
+		curriculumLink: "#",
+		rating: 4.5,
+		participants: 25,
+	},
 
-  // Add more courses here as needed
+	// Add more courses here as needed
 ];

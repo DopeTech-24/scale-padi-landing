@@ -351,12 +351,16 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 							}}
 						>
 							{[
+								"InnovatePath.svg",
 								"kartam.png",
 								"Mytherapist.png",
 								"colad.png",
-								"onehealth.jfif",
+								"one-health.svg",
 								"Meekfi.svg",
+								"Ardnas.svg",
 								"ibomsoups.png",
+								"Rozlyn.svg",
+								"moniebee.svg",
 								"afrinolly.png",
 								"s&s.jpg",
 								"retro.png",
@@ -377,7 +381,7 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 						</motion.div>
 					</motion.div>
 				</div>
-				<GetStartedDropdown text="Get Started Now" />
+				<GetStartedDropdown text="Get Started" />
 			</motion.div>
 		</div>
 	);
