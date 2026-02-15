@@ -130,7 +130,7 @@ export const Academy = () => {
 									</div>
 								</div>
 								<span className="text-[#0E1426] text-sm lg:text-lg font-normal">
-									{course.description}
+									{course.description.slice(0, 100)}...
 								</span>
 							</motion.div>
 						</Link>

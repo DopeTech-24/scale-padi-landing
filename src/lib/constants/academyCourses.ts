@@ -55,17 +55,17 @@ export const academyCourses = [
 	{
 		id: 1,
 		title: "Sales Mastery",
-		duration: "1hr:30min",
+		duration: "8 Weeks",
 		image: "/academy/academy1.png",
 		category: "Sales Mastery",
 		description:
-			"Learn how to market your business effectively with our marketing courses",
+			"Become a High-Performance Sales Professional.Sales Mastery is a hands-on, practical program designed to turn you into a confident,results-driven sales professional. This is not just theory-heavy learning, it's implementation-focused, real-world sales training",
 		instructor: {
-			name: "David Eze Peters",
-			avatar: "/images/author-dp.svg",
+			// name: "David Eze Peters",
+			// avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
-		previewDuration: "3hrs, 30min",
+		previewDuration: "8 Weeks",
 		curriculumLink:
 			"https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
 		rating: 5,
@@ -74,10 +74,11 @@ export const academyCourses = [
 	{
 		id: 2,
 		title: "Leadership",
-		duration: "1hr:30min",
+		duration: "4 Weeks",
 		image: "/academy/academy2.png",
 		category: "Leadership",
-		description: "Leadership for growth talents",
+		description:
+			"Master the Soft Skills That Drive Business Growth. Growth talent isn’t just about technical skill — it’s about leadership, influence, and execution. Leadership for Growth Talent equips professionals in sales, marketing, business development, and operations with the critical soft skills required to perform at a high level.",
 		instructor: {
 			name: "Jane Doe",
 			avatar: "/images/author-dp.svg",
@@ -92,10 +93,11 @@ export const academyCourses = [
 	{
 		id: 3,
 		title: "Growth Strategy",
-		duration: "2hr:30min",
+		duration: "3 Months (Hands-On Implementation)",
 		image: "/academy/academy3.png",
 		category: "Growth Strategy",
-		description: "Growth Strategy Essentials",
+		description:
+			"Structure Your Business. Unlock Sustainable Growth. Growth Essentials is a transformation program for founders and business owners who want clarity, structure, and scalable systems. You will work directly with our Growth Engineers to design, refine, and optimize your business foundation",
 		instructor: {
 			name: "Jane Doe",
 			avatar: "/images/author-dp.svg",
