@@ -61,8 +61,8 @@ export const academyCourses = [
 		description:
 			"Become a High-Performance Sales Professional.Sales Mastery is a hands-on, practical program designed to turn you into a confident,results-driven sales professional. This is not just theory-heavy learning, it's implementation-focused, real-world sales training",
 		instructor: {
-			// name: "David Eze Peters",
-			// avatar: "/images/author-dp.svg",
+			name: "GrowthPadi Team",
+			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
 		previewDuration: "8 Weeks",
@@ -80,7 +80,7 @@ export const academyCourses = [
 		description:
 			"Master the Soft Skills That Drive Business Growth. Growth talent isn’t just about technical skill — it’s about leadership, influence, and execution. Leadership for Growth Talent equips professionals in sales, marketing, business development, and operations with the critical soft skills required to perform at a high level.",
 		instructor: {
-			name: "Jane Doe",
+			name: "GrowthPadi Team",
 			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
@@ -99,7 +99,7 @@ export const academyCourses = [
 		description:
 			"Structure Your Business. Unlock Sustainable Growth. Growth Essentials is a transformation program for founders and business owners who want clarity, structure, and scalable systems. You will work directly with our Growth Engineers to design, refine, and optimize your business foundation",
 		instructor: {
-			name: "Jane Doe",
+			name: "GrowthPadi Team",
 			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
