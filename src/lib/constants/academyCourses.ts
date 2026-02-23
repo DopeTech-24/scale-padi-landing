@@ -69,6 +69,7 @@ export const academyCourses = [
 		curriculumLink:
 			"https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
 		rating: 5,
+		link: "https://selar.com/8306rqg425",
 		participants: 35,
 	},
 	{
@@ -88,6 +89,7 @@ export const academyCourses = [
 		curriculumLink:
 			"https://drive.google.com/file/d/1suPWMS5CzLG_TpTmgQMOVPtb2_ncOYPf/view?usp=sharing",
 		rating: 5,
+		link: "https://selar.com/19177dx70h",
 		participants: 38,
 	},
 	{
@@ -106,6 +108,7 @@ export const academyCourses = [
 		previewDuration: "3hrs, 30min",
 		curriculumLink: "#",
 		rating: 4.5,
+		link: "https://selar.com/76v8z07h8y",
 		participants: 25,
 	},
 

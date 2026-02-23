@@ -122,7 +122,7 @@ export default function AcademyId() {
 
 				<div className="flex flex-wrap items-center gap-6">
 					<a
-						href={"https://forms.gle/GRHoRzEC8QZZTqvR9"}
+						href={course.link}
 						target="_blank"
 						rel="noopener noreferrer"
 					>
