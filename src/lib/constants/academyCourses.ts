@@ -50,62 +50,67 @@
 //   },
 // ];
 
-
-
 // academyData.ts
 export const academyCourses = [
-  {
-    id: 1,
-    title: "Sales Mastery",
-    duration: "1hr:30min",
-    image: "/academy/academy1.png",
-    category: "Sales Mastery",
-    description:
-      "Learn how to market your business effectively with our marketing courses",
-    instructor: {
-      name: "David Eze Peters",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
-    rating: 5,
-    participants: 35,
-  },
-  {
-    id: 2,
-    title: "Leadership",
-    duration: "1hr:30min",
-    image: "/academy/academy2.png",
-    category: "Leadership",
-    description: "Leadership for growth talents",
-    instructor: {
-      name: "Jane Doe",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "https://drive.google.com/file/d/1suPWMS5CzLG_TpTmgQMOVPtb2_ncOYPf/view?usp=sharing",
-    rating: 5,
-    participants: 38,
-  },
-  {
-    id: 3,
-    title: "Growth Strategy",
-    duration: "2hr:30min",
-    image: "/academy/academy3.png",
-    category: "Growth Strategy",
-    description: "Growth Startegy Essentials",
-    instructor: {
-      name: "Jane Doe",
-      avatar: "/images/author-dp.svg",
-    },
-    previewImage: "/images/course-preview.svg",
-    previewDuration: "3hrs, 30min",
-    curriculumLink: "#",
-    rating: 4.5,
-    participants: 25,
-  },
+	{
+		id: 1,
+		title: "Sales Mastery",
+		duration: "8 Weeks",
+		image: "/academy/academy1.png",
+		category: "Sales Mastery",
+		description:
+			"Become a High-Performance Sales Professional.Sales Mastery is a hands-on, practical program designed to turn you into a confident,results-driven sales professional. This is not just theory-heavy learning, it's implementation-focused, real-world sales training",
+		instructor: {
+			name: "GrowthPadi Team",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "8 Weeks",
+		curriculumLink:
+			"https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
+		rating: 5,
+		link: "https://selar.com/8306rqg425",
+		participants: 35,
+	},
+	{
+		id: 2,
+		title: "Leadership",
+		duration: "4 Weeks",
+		image: "/academy/academy2.png",
+		category: "Leadership",
+		description:
+			"Master the Soft Skills That Drive Business Growth. Growth talent isn’t just about technical skill — it’s about leadership, influence, and execution. Leadership for Growth Talent equips professionals in sales, marketing, business development, and operations with the critical soft skills required to perform at a high level.",
+		instructor: {
+			name: "GrowthPadi Team",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "3hrs, 30min",
+		curriculumLink:
+			"https://drive.google.com/file/d/1suPWMS5CzLG_TpTmgQMOVPtb2_ncOYPf/view?usp=sharing",
+		rating: 5,
+		link: "https://selar.com/19177dx70h",
+		participants: 38,
+	},
+	{
+		id: 3,
+		title: "Growth Strategy",
+		duration: "3 Months (Hands-On Implementation)",
+		image: "/academy/academy3.png",
+		category: "Growth Strategy",
+		description:
+			"Structure Your Business. Unlock Sustainable Growth. Growth Essentials is a transformation program for founders and business owners who want clarity, structure, and scalable systems. You will work directly with our Growth Engineers to design, refine, and optimize your business foundation",
+		instructor: {
+			name: "GrowthPadi Team",
+			avatar: "/images/author-dp.svg",
+		},
+		previewImage: "/images/course-preview.svg",
+		previewDuration: "3hrs, 30min",
+		curriculumLink: "#",
+		rating: 4.5,
+		link: "https://selar.com/76v8z07h8y",
+		participants: 25,
+	},
 
-  // Add more courses here as needed
+	// Add more courses here as needed
 ];

@@ -8,6 +8,7 @@ import { articleList, selarArticle } from "@/lib/constants/article";
 import { calculateReadTime } from "./article-read";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const tabs = [
 	"All",
@@ -49,6 +50,9 @@ const getArticleImage = (article: any) => {
 const ArticlesSection = () => {
 	const [active, setActive] = useState(0);
 	const router = useRouter();
+	const [email, setEmail] = useState("");
+
+	const [isDownloading, setIsDownloading] = useState(false);
 
 	// Filter articles based on active tab
 	const filteredArticles = allArticles.filter((article) => {
@@ -68,6 +72,45 @@ const ArticlesSection = () => {
 
 		return article.category === tabs[active];
 	});
+
+	const handleDownload = async () => {
+		try {
+			setIsDownloading(true);
+
+			const res = await fetch(
+				"https://scale-padi-xc76.onrender.com/api/v1/emails",
+				{
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						email: email, // replace with dynamic email
+					}),
+				},
+			);
+
+			if (!res.ok) {
+				throw new Error("Request failed");
+			}
+
+			setEmail("");
+			toast.success(
+				"Email submitted successfully! Download will start shortly.",
+			);
+
+			// If request succeeds → trigger download
+			window.open(
+				"https://drive.google.com/file/d/1Np6daaWnuW8BJfp-5N-7oJlb3DJWr-Dn/view?usp=drivesdk",
+				"_blank",
+			);
+		} catch (error) {
+			console.error(error);
+			toast.error("Something went wrong. Please try again.");
+		} finally {
+			setIsDownloading(false);
+		}
+	};
 
 	return (
 		<div className="bg-[#F7F7F7] py-5 lg:py-8 overflow-hidden">
@@ -90,7 +133,7 @@ const ArticlesSection = () => {
 								"text-sm cursor-pointer pb-2 relative transition-colors",
 								active === index
 									? "text-[#1A1A1A] font-medium"
-									: "text-[#878A93] hover:text-[#1A1A1A]"
+									: "text-[#878A93] hover:text-[#1A1A1A]",
 							)}
 							variants={fadeInUp}
 						>
@@ -129,7 +172,7 @@ const ArticlesSection = () => {
 											className="img relative rounded-2xl bg-cover bg-center lg:w-[322px] h-[207px]"
 											style={{
 												backgroundImage: `url(${getArticleImage(
-													article
+													article,
 												)})`,
 												backgroundSize: "cover",
 												backgroundPosition: "center",
@@ -228,18 +271,18 @@ const ArticlesSection = () => {
 					<input
 						type="email"
 						placeholder="mayorsuleimankhan1@gmail.com"
+						value={email}
+						onChange={(e) => setEmail(e.target.value)}
 						className="grow px-4 py-3 outline-none text-sm placeholder:text-gray-400"
 					/>
 
 					<Button
-						onClick={() =>
-							router.push(
-								"https://drive.google.com/file/d/1Np6daaWnuW8BJfp-5N-7oJlb3DJWr-Dn/view?usp=drivesdk"
-							)
-						}
+						onClick={handleDownload}
+						disabled={isDownloading}
 						className="rounded-full bg-[#1746A2] text-white px-6 py-3 text-sm font-semibold flex items-center gap-2"
 					>
-						Download <ArrowDown className="w-4 h-4" />
+						{isDownloading ? "Processing..." : "Download"}
+						<ArrowDown className="w-4 h-4" />
 					</Button>
 				</motion.form>
 			</motion.div>

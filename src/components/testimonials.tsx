@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useMemo } from "react";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
@@ -110,6 +110,16 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 		scrollToTestimonial(0);
 	}, []);
 
+	// ✅ Memoized filtered testimonials
+	const filteredTestimonials = useMemo(() => {
+		return testimonials.filter((test) => {
+			if (filterBy === "ScalePadi Academy") {
+				return test.title === "ScalePadi Academy";
+			}
+			return test.title !== "ScalePadi Academy";
+		});
+	}, [filterBy]);
+
 	const scrollToTestimonial = (index: number) => {
 		if (sliderRef.current) {
 			const cardWidth = 363; // px
@@ -131,30 +141,24 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 		}
 	};
 
+	// ✅ Next
 	const nextTestimonial = () => {
-		const nextIndex =
-			(currentIndex + 1) %
-			testimonials.filter((test) => {
-				if (filterBy === "ScalePadi Academy") {
-					return test.title === "ScalePadi Academy";
-				} else {
-					return test.title !== "ScalePadi Academy";
-				}
-			}).length;
+		if (!filteredTestimonials.length) return;
+
+		const nextIndex = (currentIndex + 1) % filteredTestimonials.length;
+
 		setCurrentIndex(nextIndex);
 		scrollToTestimonial(nextIndex);
 	};
 
+	// ✅ Previous (FIXED)
 	const prevTestimonial = () => {
+		if (!filteredTestimonials.length) return;
+
 		const prevIndex =
-			(currentIndex - 1 + testimonials.length) %
-			testimonials.filter((test) => {
-				if (filterBy === "ScalePadi Academy") {
-					return test.title === "ScalePadi Academy";
-				} else {
-					return test.title !== "ScalePadi Academy";
-				}
-			}).length;
+			(currentIndex - 1 + filteredTestimonials.length) %
+			filteredTestimonials.length;
+
 		setCurrentIndex(prevIndex);
 		scrollToTestimonial(prevIndex);
 	};
@@ -184,6 +188,21 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 			scrollToTestimonial(currentIndex);
 		}
 	};
+
+	// ✅ Auto-slide
+	useEffect(() => {
+		const interval = setInterval(() => {
+			nextTestimonial();
+		}, 5000);
+
+		return () => clearInterval(interval);
+	}, [currentIndex, filteredTestimonials]);
+
+	// ✅ Reset index when filter changes
+	useEffect(() => {
+		setCurrentIndex(0);
+		scrollToTestimonial(0);
+	}, [filterBy]);
 
 	return (
 		<div className="w-full lg:py-20 py-6 bg-white text-center flex flex-col gap-5 mt-8">
@@ -222,15 +241,7 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 						transition={{ type: "spring", stiffness: 500 }}
 					>
 						{String(currentIndex + 1).padStart(2, "0")} /{" "}
-						{String(
-							testimonials.filter((test) => {
-								if (filterBy === "ScalePadi Academy") {
-									return test.title === "ScalePadi Academy";
-								} else {
-									return test.title !== "ScalePadi Academy";
-								}
-							}).length,
-						).padStart(2, "0")}
+						{String(filteredTestimonials.length).padStart(2, "0")}
 					</motion.span>
 
 					<motion.button
@@ -260,65 +271,56 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 						animate={controls}
 						className="flex gap-7 items-start justify-start min-w-fit"
 					>
-						{testimonials
-							.filter((test) => {
-								if (filterBy === "ScalePadi Academy") {
-									return test.title === "ScalePadi Academy";
-								} else {
-									return test.title !== "ScalePadi Academy";
-								}
-							})
-							.map((testimonial, index) => (
-								<motion.div
-									key={index}
-									className={`p-8 rounded-2xl border flex flex-col gap-8 border-[#D1DAEC] bg-white w-[363px] h-[300px] shrink-0 ${
-										index % 2 !== 0 ? "mt-14" : "mt-0"
-									}`}
-									animate={{
-										opacity:
-											Math.abs(index - currentIndex) < 2
-												? 1
-												: 0.6,
-										scale:
-											index === currentIndex ? 1.05 : 1,
-									}}
-									transition={{ duration: 0.3 }}
-									whileHover={{ scale: 1.02 }}
-								>
-									<span className="text-[#1A1A1A] font-medium text-base text-left line-clamp-5">
-										{testimonial.message}
-									</span>
-									<div className="flex items-center gap-3.5 mt-auto">
-										<div className="w-[70px] h-[70px] flex items-center justify-center rounded-full overflow-hidden bg-gray-200">
-											{testimonial.image ? (
-												<Image
-													src={testimonial.image}
-													alt={testimonial.name}
-													width={70}
-													height={70}
-													className="w-full h-full object-cover"
-												/>
-											) : (
-												<Image
-													src={`data:image/png;base64,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`}
-													alt={testimonial.name}
-													width={70}
-													height={70}
-													className="w-full h-full object-cover"
-												/>
-											)}
-										</div>
-										<div className="flex flex-col gap-1">
-											<span className="font-bold text-[16px] text-left">
-												{testimonial.name}
-											</span>
-											<span className="text-base text-left font-medium text-[#878C91]">
-												{testimonial.title}
-											</span>
-										</div>
+						{filteredTestimonials.map((testimonial, index) => (
+							<motion.div
+								key={index}
+								className={`p-8 rounded-2xl border flex flex-col gap-8 border-[#D1DAEC] bg-white w-[363px] h-[300px] shrink-0 ${
+									index % 2 !== 0 ? "mt-14" : "mt-0"
+								}`}
+								animate={{
+									opacity:
+										Math.abs(index - currentIndex) < 2
+											? 1
+											: 0.6,
+									scale: index === currentIndex ? 1.05 : 1,
+								}}
+								transition={{ duration: 0.3 }}
+								whileHover={{ scale: 1.02 }}
+							>
+								<span className="text-[#1A1A1A] font-medium text-base text-left line-clamp-5">
+									{testimonial.message}
+								</span>
+								<div className="flex items-center gap-3.5 mt-auto">
+									<div className="w-[70px] h-[70px] flex items-center justify-center rounded-full overflow-hidden bg-gray-200">
+										{testimonial.image ? (
+											<Image
+												src={testimonial.image}
+												alt={testimonial.name}
+												width={70}
+												height={70}
+												className="w-full h-full object-cover"
+											/>
+										) : (
+											<Image
+												src={`data:image/png;base64,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`}
+												alt={testimonial.name}
+												width={70}
+												height={70}
+												className="w-full h-full object-cover"
+											/>
+										)}
 									</div>
-								</motion.div>
-							))}
+									<div className="flex flex-col gap-1">
+										<span className="font-bold text-[16px] text-left">
+											{testimonial.name}
+										</span>
+										<span className="text-base text-left font-medium text-[#878C91]">
+											{testimonial.title}
+										</span>
+									</div>
+								</div>
+							</motion.div>
+						))}
 					</motion.div>
 				</div>
 			</div>
@@ -351,12 +353,16 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 							}}
 						>
 							{[
+								"InnovatePath.svg",
 								"kartam.png",
 								"Mytherapist.png",
 								"colad.png",
-								"onehealth.jfif",
+								"one-health.svg",
 								"Meekfi.svg",
+								"Ardnas.svg",
 								"ibomsoups.png",
+								"Rozlyn.svg",
+								"moniebee.svg",
 								"afrinolly.png",
 								"s&s.jpg",
 								"retro.png",
@@ -377,7 +383,7 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 						</motion.div>
 					</motion.div>
 				</div>
-				<GetStartedDropdown text="Get Started Now" />
+				<GetStartedDropdown text="Get Started" />
 			</motion.div>
 		</div>
 	);
