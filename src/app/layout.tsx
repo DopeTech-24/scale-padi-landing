@@ -5,6 +5,7 @@ import Navbar from "@/components/NavBar";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
 import { QueryProvider } from "@/components/QueryProvider";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 export const metadata: Metadata = {
 	title: "ScalePadi – Business Growth & Career Acceleration",
@@ -38,6 +39,7 @@ export default function RootLayout({
 			<body
 				className={`antialiased lg:w-[1440px] lg:max-w-[1440px] lg:mx-auto w-screen`}
 			>
+				<GoogleTagManager gtmId="GTM-NVNLX6QT" />
 				<QueryProvider>
 					<Toaster richColors />
 					<div className="flex flex-col">
