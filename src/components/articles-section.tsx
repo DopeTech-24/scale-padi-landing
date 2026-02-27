@@ -210,7 +210,9 @@ const ArticlesSection = () => {
 										<div
 											className="img relative rounded-2xl bg-cover bg-center lg:w-[322px] h-[207px]"
 											style={{
-												backgroundImage: `url(${"/images/article1.svg"})`,
+												backgroundImage: `url(${getArticleImage(
+													article,
+												)})`,
 											}}
 										>
 											<div className="absolute bottom-2 right-2 p-2 items-center flex gap-1 bg-[#FBFCFC] rounded-3xl">

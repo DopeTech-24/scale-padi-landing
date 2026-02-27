@@ -99,7 +99,7 @@ const AcademyHero = () => {
 							className="w-fit"
 						>
 							<Link
-								href={"https://forms.gle/GRHoRzEC8QZZTqvR9"}
+								href={"https://selar.com/m/ScalePadi"}
 								target="_blank"
 							>
 								<Button className="flex font-semibold items-center gap-2 bg-[#1746A2] text-white px-5 py-3">
