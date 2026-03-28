@@ -59,7 +59,7 @@ export default function HeroSection() {
 						words={[
 							"Powering Business Growth with Technology and Talent",
 							"Unlock Expert Strategies to Scale Smart",
-							"Your Growth Starts Here Join the Waitlist",
+							"Your Growth Starts Here. Explore ScalePadi",
 						]}
 						cursor
 						cursorStyle="|"
@@ -78,8 +78,8 @@ export default function HeroSection() {
 					transition={{ delay: 0.4, duration: 0.6 }}
 					className="text-xs md:text-sm text-center text-[#1A1A1A]"
 				>
-					Identify challenges, get expert-backed strategies, and scale
-					efficiently all on one platform.
+					Identify challenges, get expert-backed strategies, hire, and
+					scale efficiently all on one platform.
 				</motion.p>
 
 				{/* CTA Buttons */}
