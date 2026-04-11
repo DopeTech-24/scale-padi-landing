@@ -6,6 +6,7 @@ import {
 	Linkedin,
 	Instagram,
 	ArrowRight,
+	Youtube,
 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -58,39 +59,57 @@ export default function Footer() {
 							complete infrastructure to accelerate sustainable
 							business growth.
 						</p>
-						<div className="flex items-center justify-center md:items-start md:justify-start gap-3">
-							<div className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center">
-								<Facebook className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
-							</div>
+						<div className="flex items-center justify-center gap-3 md:items-start md:justify-start">
 							<div
 								onClick={() =>
-									router.push(
+									window.open(
+										"https://youtube.com/@scalepadi?si=Fdu6MxM6IUVD7T6H",
+										"_blank",
+										"noopener,noreferrer",
+									)
+								}
+								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
+							>
+								<Youtube className="h-4 w-4 text-[#1746A2] hover:text-[#7392ee]" />
+							</div>
+
+							<div
+								onClick={() =>
+									window.open(
 										"https://x.com/PadiScale98709?s=20",
+										"_blank",
+										"noopener,noreferrer",
 									)
 								}
-								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
+								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
 							>
-								<XIcon className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
+								<XIcon className="h-4 w-4 text-[#1746A2] hover:text-[#7392ee]" />
 							</div>
+
 							<div
 								onClick={() =>
-									router.push(
+									window.open(
 										"https://www.linkedin.com/company/scale-padi/",
+										"_blank",
+										"noopener,noreferrer",
 									)
 								}
-								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
+								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
 							>
-								<Linkedin className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
+								<Linkedin className="h-4 w-4 text-[#1746A2] hover:text-[#7392ee]" />
 							</div>
+
 							<div
-								// onClick={() =>
-								// 	router.push(
-								// 		"https://www.instagram.com/scalepadi?igsh=Y2lheGZvMjdoYTlu",
-								// 	)
-								// }
-								className="bg-white w-[34px] h-[34px] rounded-full flex items-center justify-center"
+								onClick={() =>
+									window.open(
+										"https://www.instagram.com/scalepadi?igsh=eTU3ODFuempuM2ho",
+										"_blank",
+										"noopener,noreferrer",
+									)
+								}
+								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
 							>
-								<Instagram className="w-4 h-4 text-[#1746A2] hover:text-[#7392ee] cursor-pointer" />
+								<Instagram className="h-4 w-4 text-[#1746A2] hover:text-[#7392ee]" />
 							</div>
 						</div>
 					</div>
