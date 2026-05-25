@@ -69,7 +69,7 @@ export const academyCourses = [
 		curriculumLink:
 			"https://drive.google.com/file/d/1tuXS_yBCnxVSm4cFjVspx8Rpce-Kr37q/view?usp=sharing",
 		rating: 5,
-		link: "https://selar.com/8306rqg425",
+		link: "https://bit.ly/ScalePadiAcademyshop",
 		participants: 35,
 	},
 	{
