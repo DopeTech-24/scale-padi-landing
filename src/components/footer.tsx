@@ -65,7 +65,7 @@ export default function Footer() {
 									window.open(
 										"https://youtube.com/@scalepadi?si=Fdu6MxM6IUVD7T6H",
 										"_blank",
-										"noopener,noreferrer",
+										"noopener,noreferrer"
 									)
 								}
 								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
@@ -78,7 +78,7 @@ export default function Footer() {
 									window.open(
 										"https://x.com/PadiScale98709?s=20",
 										"_blank",
-										"noopener,noreferrer",
+										"noopener,noreferrer"
 									)
 								}
 								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
@@ -91,7 +91,7 @@ export default function Footer() {
 									window.open(
 										"https://www.linkedin.com/company/scale-padi/",
 										"_blank",
-										"noopener,noreferrer",
+										"noopener,noreferrer"
 									)
 								}
 								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
@@ -104,7 +104,7 @@ export default function Footer() {
 									window.open(
 										"https://www.instagram.com/scalepadi?igsh=eTU3ODFuempuM2ho",
 										"_blank",
-										"noopener,noreferrer",
+										"noopener,noreferrer"
 									)
 								}
 								className="flex h-[34px] w-[34px] cursor-pointer items-center justify-center rounded-full bg-white"
@@ -159,8 +159,8 @@ export default function Footer() {
 								Contact
 							</h4>
 							<div className="flex flex-col text-center items-center justify-center md:items-start md:justify-start gap-3 md:gap-7 text-sm text-blue-100">
-								<p>+2349134138999</p>
-								<p>support@scalepadi.com</p>
+								<p>+234 810 910 9491</p>
+								<p>info@scalepadi.com</p>
 								<p>
 									13 Akinbola Close Surulere
 									<br />

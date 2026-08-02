@@ -11,8 +11,8 @@ import { useState } from "react";
 import { useInquiryMutation } from "@/hooks/useInquiry";
 
 const contactInfo = [
-	{ icon: Phone, text: "+2349134138999" },
-	{ icon: Mail, text: "support@scalepadi.com" },
+	{ icon: Phone, text: "+234 810 910 9491" },
+	{ icon: Mail, text: "info@scalepadi.com" },
 	{
 		icon: Pin,
 		text: "13 Akinbola Close Surulere, Lagos, Nigeria",
@@ -84,7 +84,7 @@ export default function Contact() {
 	});
 
 	const handleChange = (
-		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
 	};
@@ -191,7 +191,7 @@ export default function Contact() {
 										)}
 									</motion.div>
 								</div>
-							),
+							)
 						)}
 					</motion.div>
 
