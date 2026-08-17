@@ -102,7 +102,7 @@ export default function Navbar() {
 					target="_blank"
 					className="text-gray-700 hover:text-[#1746A2] transition-colors"
 				>
-					For Experts
+					Sign up as an expert
 				</Link>
 				<div className="flex items-center space-x-4">
 					{/* <Button
@@ -114,7 +114,7 @@ export default function Navbar() {
 					</Button> */}
 					<Link href="https://business.scalepadi.com" target="_blank">
 						<Button className="bg-[#1746A2] hover:bg-[#1746A2] text-white">
-							For Business
+							Sign up as a business
 						</Button>
 					</Link>
 				</div>
@@ -239,7 +239,7 @@ export default function Navbar() {
 							target="_blank"
 							className="text-gray-700 hover:text-[#1746A2] transition-colors"
 						>
-							For Experts
+							Sign up as an expert
 						</Link>
 					</nav>
 				</motion.div>
