@@ -45,7 +45,7 @@ export default function GetStartedDropdown({
 						handleRedirect("https://business.scalepadi.com")
 					}
 				>
-					For Businesses
+					Sign up as a business
 				</DropdownMenuItem>
 
 				<DropdownMenuItem
@@ -54,7 +54,7 @@ export default function GetStartedDropdown({
 						handleRedirect("https://expert.scalepadi.com")
 					}
 				>
-					For Experts
+					Sign up as an expert
 				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>

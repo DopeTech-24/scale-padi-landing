@@ -98,7 +98,7 @@ export default function HeroSection() {
 							target="_blank"
 							className="flex font-semibold items-center gap-2"
 						>
-							For Businesses <ArrowRight />
+							Sign up as a business <ArrowRight />
 						</Link>
 					</motion.button>
 
@@ -116,7 +116,7 @@ export default function HeroSection() {
 							target="_blank"
 							className="flex font-semibold items-center gap-2"
 						>
-							For Experts <ArrowRight />
+							Sign up as an expert <ArrowRight />
 						</Link>
 					</motion.button>
 				</div>
