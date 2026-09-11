@@ -3,7 +3,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { CheckCircle2, FileText, Loader2, Upload, X } from "lucide-react";
 
-const API_URL = "https://scale-padi-test.onrender.com/api/v1/offline-recruitment";
+const API_URL = "https://scale-padi-xc76.onrender.com/api/v1/offline-recruitment";
 
 const inputClass =
   "mt-2 min-h-12 w-full rounded-xl border border-[#D9E0ED] bg-white px-4 py-3 text-base text-[#172033] outline-none transition placeholder:text-[#98A2B3] focus:border-[#1746A2] focus:ring-4 focus:ring-[#1746A2]/10 sm:text-sm";
