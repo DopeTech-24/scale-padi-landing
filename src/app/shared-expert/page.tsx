@@ -15,7 +15,7 @@ import {
   UsersRound,
 } from "lucide-react";
 
-const API_BASE_URL = "https://scale-padi-test.onrender.com/api/v1";
+const API_BASE_URL = "https://scale-padi-xc76.onrender.com/api/v1";
 
 type ExpertProfile = {
   headline: string | null;
