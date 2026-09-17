@@ -36,9 +36,9 @@ export default function Footer() {
 		<footer className="w-full flex flex-col gap-10 bg-[#1746A2] text-white px-4 lg:px-14 py-12 lg:mt-16">
 			<div className="scale bg-[#020609] rounded-4xl w-full flex flex-wrap items-center justify-between px-8 py-4 gap-5 lg:px-16 lg:py-8 lg:mb-16">
 				<span className="font-semibold text-2xl lg:text-6xl leading-[130%] lg:w-[750px]">
-					Looking to Scale your Business?
+					Ready to Scale Your Business with Qualified Expertise?
 				</span>
-				<GetStartedDropdown text="Get started now" />
+				<GetStartedDropdown text="Start here" />
 			</div>
 			<div className="w-full">
 				<div className="flex items-center flex-col lg:flex-row justify-between gap-10 lg:gap-[100px]">
@@ -51,13 +51,7 @@ export default function Footer() {
 							height={49.25}
 						/>
 						<p className="text-[#DFDFDF] text-sm leading-6 text-center md:text-left">
-							We provide end-to-end business growth services that
-							tackle every scaling challenge African businesses
-							face, from AI-powered strategy development and
-							expert talent matching to performance analytics and
-							execution frameworks, our platform delivers the
-							complete infrastructure to accelerate sustainable
-							business growth.
+							ScalePadi helps African businesses move from growth bottlenecks to execution by connecting them with the right talent, strategy and growth support. We are focused on the outcomes right for your business and not just role titles. Whether you want to find talent yourself, get AI-powered recommendations, or let us handle the hiring process from start to finish, we're your growth partner beyond recruitment.
 						</p>
 						<div className="flex items-center justify-center gap-3 md:items-start md:justify-start">
 							<div

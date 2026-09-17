@@ -78,8 +78,7 @@ export default function HeroSection() {
 					transition={{ delay: 0.4, duration: 0.6 }}
 					className="text-xs md:text-sm text-center text-[#1A1A1A]"
 				>
-					Identify challenges, get expert-backed strategies, hire, and
-					scale efficiently all on one platform.
+					Find talent from vetted pool, get AI-powered support, or let ScalePadi handle the entire hiring, all in one platform. 
 				</motion.p>
 
 				{/* CTA Buttons */}

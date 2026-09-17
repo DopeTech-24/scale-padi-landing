@@ -1,123 +1,64 @@
 export const faqs = [
-    {
-      question: "What is ScalePadi?",
-      answer:
-        "ScalePadi is a tech-driven growth platform that helps African businesses identify growth challenges, receive tailored strategies, and connect with vetted experts to drive results quickly and efficiently.",
-    },
-    {
-      question: "Who can use ScalePadi?",
-      answer:
-        "ScalePadi serves startups, SMEs, growth experts, and investors. If you’re looking to grow a business or offer your expertise in business development, sales, or marketing, ScalePadi is for you.",
-    },
-    {
-      question: "Is ScalePadi an HR or recruitment company?",
-      answer:
-        "No. ScalePadi is not a recruitment agency. We are a growth engine platform that matches businesses with the right experts and strategies to solve growth challenges not just to hire.",
-    },
-    {
-      question: "What makes ScalePadi different from traditional consulting platforms?",
-      answer:
-        "ScalePadi combines AI-powered insights with human expertise. Our platform delivers tailored growth strategies, expert matching, and real-time performance tracking all within 72 hours.",
-    },
-    {
-      question: "How does ScalePadi work for businesses?",
-      answer:
-        "Simply input your business challenges on our platform. Our system will streamline those into growth bottlenecks and recommend a strategy along with a vetted expert or growth team to execute it. You can begin implementation within 48–72 hours.",
-    },
-    {
-      question: "What kind of experts can I find on ScalePadi?",
-      answer:
-        "We offer access to professionals in sales, marketing, business development, customer experience, product strategy, and more — all vetted through the ScalePadi Academy or direct onboarding.",
-    },
-    {
-      question: "How long does it take to get matched with a growth expert?",
-      answer:
-        "Once your challenge is submitted and vetted, you will be matched with a tailored growth engine within 48–72 hours.",
-    },
-    {
-      question: "Can I request a full team instead of an individual expert?",
-      answer:
-        "Yes, ScalePadi offers both individual consultants and cross-functional growth teams based on your needs.",
-    },
-    {
-      question: "How are payments structured?",
-      answer:
-        "We offer flexible billing: project-based pricing, subscriptions, or growth credits. All payments are processed securely through trusted gateways.",
-    },
-    {
-      question: "Can I change experts during a project?",
-      answer:
-        "Yes. If you're not satisfied, we will facilitate a smooth transition to another expert who better fits your needs.",
-    },
-    {
-      question: "Who can become a ScalePadi expert?",
-      answer:
-        "We onboard experienced sales, marketing, and growth professionals who demonstrate strong strategy, execution, and communication skills. Some experts also come through the ScalePadi Academy.",
-    },
-    {
-      question: "How do I get started as an expert?",
-      answer:
-        "Sign up, complete your profile, and submit your experience for review. Once vetted, you’ll be eligible for project matches based on your expertise.",
-    },
-    {
-      question: "Do I need to pay to join?",
-      answer:
-        "No payment is required to join the platform. However, certain premium features (like early project access or spotlight placement) may be available on a subscription basis.",
-    },
-    {
-      question: "How do I get paid?",
-      answer:
-        "Payments are made directly through the platform based on project milestones or completion, less ScalePadi’s platform fee.",
-    },
-    {
-      question: "Can I work with more than one business at a time?",
-      answer:
-        "Yes, as long as you can manage the workload and deliver quality results, you can take on multiple engagements.",
-    },
-    {
-      question: "What support do experts receive?",
-      answer:
-        "Experts have access to our internal support team, a knowledge base, and feedback tools to help improve delivery and success rates.",
-    },
-    {
-      question: "What is the ScalePadi Academy?",
-      answer:
-        "The Academy is a structured training and internship program designed to equip emerging professionals with in-demand sales, marketing, and business development skills.",
-    },
-    {
-      question: "How long is the program?",
-      answer:
-        "The Academy runs for 6 months: 3 months of intensive training and 3 months of hands-on internship.",
-    },
-    {
-      question: "Who is eligible to apply?",
-      answer:
-        "Anyone with a strong interest in business growth and some background in sales, marketing, or communication can apply.",
-    },
-    {
-      question: "Is there a fee to join the Academy?",
-      answer:
-        "Yes, a small monthly commitment fee is required to secure your seat and ensure participation. This will be communicated clearly upon selection.",
-    },
-    {
-      question: "Will I get a job after the Academy?",
-      answer:
-        "While we don’t guarantee full-time employment, successful fellows are matched with internship roles and considered for opportunities on the ScalePadi platform.",
-    },
-    {
-      question: "What devices can I use to access ScalePadi?",
-      answer:
-        "The platform is fully responsive and works on desktops, tablets, and mobile browsers. A dedicated app may be considered in the future.",
-    },
-    {
-      question: "Is my data safe on ScalePadi?",
-      answer:
-        "Yes. We use secure, encrypted systems and comply with data protection regulations to safeguard user information.",
-    },
-    {
-      question: "Who do I contact for support?",
-      answer:
-        "You can reach our support team via the live chat button on the website or by emailing support@scalepadi.com.",
-    },
-  ];
+  {
+    question: "What is ScalePadi?",
+    answer:
+      "ScalePadi is a growth engine that connects African businesses with vetted growth experts, whether you need to hire directly, launch a managed project, or first diagnose your growth bottleneck with AI. We help you move from problem to execution in as little as 72 hours.",
+  },
+  {
+    question: "Who can use ScalePadi?",
+    answer:
+      "ScalePadi is for two kinds of users: Businesses looking to hire vetted talents or execute growth projects, and Experts — sales, marketing, business development, and growth professionals looking for real opportunities. If you're a business, sign up as a Business. If you're a talent, sign up as an Expert.",
+  },
+  {
+    question: "Is ScalePadi an HR or recruitment company?",
+    answer:
+      "Not in the traditional sense. We are a growth hub using talent to solve real business growth problems. Hiring is outcome based, not just role based. While ScalePadi helps businesses hire vetted growth professionals, we also provide AI-powered hiring guidance and a fully managed hiring service. Whether you want to hire yourself, get expert recommendations, or outsource the recruitment process, ScalePadi gives you the flexibility to hire the way that works best for your business.",
+  },
+  {
+    question:
+      "What makes ScalePadi different from traditional consulting platforms?",
+    answer:
+      "ScalePadi combines vetted, pre-screened talent with AI-powered diagnostics and execution support, not just advice. You get matched with the right expert or team and can start execution within 72 hours, instead of waiting weeks for a consulting engagement to even begin. Our focus is on helping you achieve your business growth outcomes, not just on the role you think you need.",
+  },
+  {
+    question: "How does ScalePadi work for businesses?",
+    answer:
+      "You can hire a vetted talent directly, engage ScalePadi to source and manage the entire hiring process, or use ScalePadi AI if you're not yet sure who you need. It will diagnose your bottleneck and recommend a strategy and best-fit roles. Whichever path you choose, you can begin execution within 48–72 hours.",
+  },
+  {
+    question: "How much does it cost to hire through ScalePadi?",
+    answer:
+      "ScalePadi uses a transparent, one-time fee per hire. Exact pricing depends on which service you use: hiring, managed projects, or AI-assisted matching.",
+  },
+  {
+    question: "What is expert verification?",
+    answer:
+      "Verification is a review process that helps us confirm your identity, experience, and professional background before you become eligible for opportunities on ScalePadi. Only verified experts are matched with businesses and opportunities on the platform.",
+  },
+  {
+    question: "How do I get verified?",
+    answer:
+      "Getting verified is simple: complete your profile to 100% by filling in your personal and professional details, book a verification call, and attend your scheduled verification call. Once your information has been reviewed and approved, your profile will be marked as Verified.",
+  },
+  {
+    question: "Why is my profile not 100% complete?",
+    answer:
+      "Your profile completion percentage depends on whether all required information has been provided. To reach 100%, make sure you've filled in every detail from personal to professional details, added relevant links such as LinkedIn and portfolio links, and submitted the required documents. If you are not at 100%, something is missing — return to your dashboard and edit your details to find out what is missing.",
+  },
+  {
+    question: "I didn't receive my OTP. What should I do?",
+    answer:
+      "Please wait a few minutes and check your spam or junk folder if your OTP was sent via email. If you still haven't received it, request a new OTP. If the issue persists, contact the ScalePadi support team at info@scalepadi.com.",
+  },
+  {
+    question: "I forgot my password. What should I do?",
+    answer:
+      "Click Forgot Password on the login page and follow the instructions to reset your password. If you're unable to reset it, contact our support team at info@scalepadi.com.",
+  },
+  {
+    question: "Can I sign up as both a Business and an Expert?",
+    answer:
+      "No. Business and Expert accounts serve different purposes and have separate onboarding processes. If you accidentally sign up under the wrong account type, please contact the ScalePadi support team at info@scalepadi.com.",
+  },
+];
   

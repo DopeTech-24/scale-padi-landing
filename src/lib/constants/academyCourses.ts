@@ -59,9 +59,9 @@ export const academyCourses = [
 		image: "/academy/academy1.png",
 		category: "Sales Mastery",
 		description:
-			"Become a High-Performance Sales Professional.Sales Mastery is a hands-on, practical program designed to turn you into a confident,results-driven sales professional. This is not just theory-heavy learning, it's implementation-focused, real-world sales training",
+			"Become the sales professional businesses are actively searching for. Sales Mastery is a structured, hands-on program taught by professionals currently working in sales. You'll learn how to prospect, pitch, and close, the actual skills that get results, then graduate job ready, not just informed.",
 		instructor: {
-			name: "GrowthPadi Team",
+			name: "ScalePadi Academy",
 			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
@@ -80,9 +80,9 @@ export const academyCourses = [
 		image: "/academy/academy2.png",
 		category: "Leadership",
 		description:
-			"Master the Soft Skills That Drive Business Growth. Growth talent isn’t just about technical skill — it’s about leadership, influence, and execution. Leadership for Growth Talent equips professionals in sales, marketing, business development, and operations with the critical soft skills required to perform at a high level.",
+			"Technical skill alone doesn't drive growth. Leadership, influence, and follow-through do. Leadership for Growth Talents builds the soft skills professionals in sales, marketing, business development, and operations need to lead and execute like true growth operators.",
 		instructor: {
-			name: "GrowthPadi Team",
+			name: "ScalePadi Academy",
 			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
@@ -95,14 +95,14 @@ export const academyCourses = [
 	},
 	{
 		id: 3,
-		title: "Growth Strategy",
+		title: "PR and Brand Management",
 		duration: "3 Months (Hands-On Implementation)",
 		image: "/academy/academy3.png",
 		category: "Growth Strategy",
 		description:
 			"Structure Your Business. Unlock Sustainable Growth. Growth Essentials is a transformation program for founders and business owners who want clarity, structure, and scalable systems. You will work directly with our Growth Engineers to design, refine, and optimize your business foundation",
 		instructor: {
-			name: "GrowthPadi Team",
+			name: "ScalePadi Academy",
 			avatar: "/images/author-dp.svg",
 		},
 		previewImage: "/images/course-preview.svg",
