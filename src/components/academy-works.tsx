@@ -43,22 +43,22 @@ const cardsData = [
   {
     img: "/images/step1.svg",
     title: "Apply and Get Selected",
-    desc: "Candidates go through a selection process based on experience and growth potential.",
+    desc: "Candidates go through a structured selection process based on experience and growth potential.",
   },
   {
     img: "/images/step2.svg",
-    title: "Learn and Develop",
-    desc: "Comprehensive training in business growth and execution strategies.",
+    title: "Learn From Industry Experts",
+    desc: "Hands-on training in Sales, BD, Marketing and Growth, led by professionals actively working in the industry.",
   },
   {
     img: "/images/step3.svg",
     title: "Gain Real-World Experience",
-    desc: "Participants are placed in internship roles to apply their skills.",
+    desc: "Participants engage in field trips and a paid internship, applying their skills with real businesses.",
   },
   {
     img: "/images/step4.svg",
-    title: "Career Advancement",
-    desc: "Graduates access freelance, full-time, and project-based opportunities.",
+    title: "Graduate Job Ready",
+    desc: "Graduates join the ScalePadi platform as Verified Talents, job ready from day one.",
   },
 ];
 
@@ -80,7 +80,7 @@ export const AcademyWorks = () => {
           How it Works
         </h2>
         <p className="md:text-base text-sm text-center">
-          Scale your business while learning from industry experts
+          A Structured Path Into a Career in Growth
         </p>
       </motion.div>
 

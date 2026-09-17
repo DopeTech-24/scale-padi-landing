@@ -130,7 +130,7 @@ export default function AcademyId() {
 							className="bg-[#1746A2] text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-[#123c8d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123c8d]"
 							aria-label={`Apply now for ${course.title}`}
 						>
-							Apply Now
+							Buy Course
 							<ArrowRight className="ml-2" />
 						</Button>
 					</a>

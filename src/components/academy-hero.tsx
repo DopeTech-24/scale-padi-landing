@@ -65,26 +65,21 @@ const AcademyHero = () => {
 					aria-label="Academy hero background"
 				>
 					<motion.div
-						className="flex flex-col lg:gap-8 gap-5 lg:w-[697px] absolute bottom-16 lg:bottom-20 px-4 lg:px-0"
+						className="flex flex-col lg:gap-8 gap-5 lg:w-[800px] absolute bottom-16 lg:bottom-20 px-4 lg:px-0"
 						variants={containerVariants}
 					>
 						<motion.h1
 							className="font-extrabold text-3xl sm:text-4xl lg:text-5xl leading-tight lg:leading-[69.19px] text-white drop-shadow-lg"
 							variants={fadeUpVariants}
 						>
-							Unlock Business Growth Expertise
+							Where Africa's Next Generation of Growth Operators Are Trained
 						</motion.h1>
 
 						<motion.p
 							className="text-sm sm:text-base leading-relaxed lg:leading-[27px] max-w-lg text-white drop-shadow"
 							variants={fadeUpVariants}
 						>
-							ScalePadi Academy is a structured hands-on learning
-							and career acceleration platform designed to train
-							individuals in business development and growth
-							roles, provide career mentorship and connect them
-							with real-world job, projects and business
-							opportunities.
+							Over 200 million businesses across Africa need skilled sales, marketing, and business development professionals, but formal education doesn't teach this, and scattered online courses never go deep enough. ScalePadi Academy closes that gap with structured training and a paid internship, so students graduate as Verified Talents on the ScalePadi platform, job ready from day one and directly accessible to businesses that are hiring. 
 						</motion.p>
 
 						<motion.div
@@ -96,14 +91,23 @@ const AcademyHero = () => {
 								stiffness: 200,
 								damping: 25,
 							}}
-							className="w-fit"
+							className="w-fit flex items-center gap-4"
 						>
 							<Link
-								href={"https://bit.ly/ScalePadiAcademyshop"}
+								href={"https://bit.ly/SPA-Cohort5"}
 								target="_blank"
 							>
 								<Button className="flex font-semibold items-center gap-2 bg-[#1746A2] text-white px-5 py-3">
 									Join the next cohort
+									<ArrowRight size={20} aria-hidden="true" />
+								</Button>
+							</Link>
+							<Link
+								href={"https://drive.google.com/file/d/16N4pmfmyF-cVsd8EhziNYhTflEDv11d5/view?usp=drive_link"}
+								target="_blank"
+							>
+								<Button className="flex font-semibold items-center gap-2 bg-[#FCCE37] text-[#1A1A1A] px-5 py-3">
+									Apply for Scholarship
 									<ArrowRight size={20} aria-hidden="true" />
 								</Button>
 							</Link>

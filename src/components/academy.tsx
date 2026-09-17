@@ -43,11 +43,11 @@ export const Academy = () => {
 	};
 
 	const valueItems = [
-		"In-demand growth skills in sales, strategy, marketing",
-		"Work experience through structured internships",
-		"Mentorship from industry experts and life-long learning opportunities",
-		"Scale your career, increase revenue, connect with businesses in need of your skills",
-		"A community and network of like-minded growth experts",
+		"Skills across sales, business development, marketing and growth",
+		"A paid internship for real, hands-on experience",
+		"Mentorship from established industry leaders",
+		"Verified Talent status, job ready from day one",
+		"A growing network of fellow growth operators",
 	];
 
 	return (
@@ -159,11 +159,11 @@ export const Academy = () => {
 					</MotionText>
 
 					<MotionText className="font-medium text-white text-sm">
-						Get in-demand skills and experience
+						Skills, experience, and a direct path to work
 					</MotionText>
 
 					<Link
-						href={"https://forms.gle/GRHoRzEC8QZZTqvR9"}
+						href={"https://bit.ly/SPA-Cohort5"}
 						target="_blank"
 					>
 						<Button className="bg-[#FCCE37] text-[#1A1A1A] text-base flex gap-4 w-fit">
