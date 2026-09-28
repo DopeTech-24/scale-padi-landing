@@ -72,6 +72,7 @@ export const academyCourses = [
 		link: "https://bit.ly/ScalePadiAcademyshop",
 		// https://bit.ly/ScalePadiAcademyshop
 		participants: 35,
+		isComingSoon: false,
 	},
 	{
 		id: 2,
@@ -92,6 +93,7 @@ export const academyCourses = [
 		rating: 5,
 		link: "https://selar.com/19177dx70h",
 		participants: 38,
+		isComingSoon: false,
 	},
 	{
 		id: 3,
@@ -100,7 +102,7 @@ export const academyCourses = [
 		image: "/academy/academy3.png",
 		category: "Growth Strategy",
 		description:
-			"Structure Your Business. Unlock Sustainable Growth. Growth Essentials is a transformation program for founders and business owners who want clarity, structure, and scalable systems. You will work directly with our Growth Engineers to design, refine, and optimize your business foundation",
+			"How a business is seen often decides whether it grows. PR and Brand Management trains professionals in sales, marketing, and business development to shape public perception, manage reputation, and build brands that people trust and remember, the kind of skill that turns visibility into real business growth.",
 		instructor: {
 			name: "ScalePadi Academy",
 			avatar: "/images/author-dp.svg",
@@ -111,6 +113,7 @@ export const academyCourses = [
 		rating: 4.5,
 		link: "https://selar.com/76v8z07h8y",
 		participants: 25,
+		isComingSoon: true,
 	},
 
 	// Add more courses here as needed
