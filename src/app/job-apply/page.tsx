@@ -5,6 +5,11 @@ import { CheckCircle2, FileText, Loader2, Upload, X } from "lucide-react";
 
 const API_URL = "https://scale-padi-xc76.onrender.com/api/v1/offline-recruitment";
 
+type ApiResponse = {
+  status?: boolean;
+  message?: string;
+};
+
 const inputClass =
   "mt-2 min-h-12 w-full rounded-xl border border-[#D9E0ED] bg-white px-4 py-3 text-base text-[#172033] outline-none transition placeholder:text-[#98A2B3] focus:border-[#1746A2] focus:ring-4 focus:ring-[#1746A2]/10 sm:text-sm";
 
@@ -13,6 +18,7 @@ export default function JobApplyPage() {
   const [expectedSalary, setExpectedSalary] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleResumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setResume(event.target.files?.[0] ?? null);
@@ -33,6 +39,7 @@ export default function JobApplyPage() {
     }
 
     setStatus("idle");
+    setErrorMessage("");
     setIsSubmitting(true);
 
     const formData = new FormData(form);
@@ -40,13 +47,18 @@ export default function JobApplyPage() {
     // Browsers already include the selected file under the `resume` field name.
     try {
       const response = await fetch(API_URL, { method: "POST", body: formData });
-      if (!response.ok) throw new Error("Application could not be submitted");
+      const result = await response.json().catch(() => null) as ApiResponse | null;
+
+      if (!response.ok || result?.status === false) {
+        throw new Error(result?.message || "Application could not be submitted. Please try again.");
+      }
 
       form.reset();
       setResume(null);
       setExpectedSalary("");
       setStatus("success");
-    } catch {
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Application could not be submitted. Please try again.");
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -122,7 +134,7 @@ export default function JobApplyPage() {
             </label>
           </section>
 
-          {status === "error" && <StatusMessage type="error" message="We couldn’t submit your application. Please check your connection and try again." />}
+          {status === "error" && <StatusMessage type="error" message={errorMessage} />}
 
           <button type="submit" disabled={isSubmitting} className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1746A2] px-6 py-3.5 text-base font-bold text-white transition hover:bg-[#12377E] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:text-sm">
             {isSubmitting ? <><Loader2 size={18} className="animate-spin" /> Submitting application...</> : "Submit Application"}
