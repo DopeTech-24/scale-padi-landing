@@ -15,6 +15,8 @@
 //   issuedCertificates: number;
 // }
 
+// Trigger
+
 // export const academyCourses: AcademyCourse[] = [
 //   {
 //     id: 1,
