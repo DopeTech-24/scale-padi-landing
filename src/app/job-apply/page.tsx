@@ -168,8 +168,8 @@ function SuccessModal({ onClose }: { onClose: () => void }) {
         <button type="button" onClick={onClose} aria-label="Close confirmation" className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-[#667085] transition hover:bg-[#F2F4F7] hover:text-[#172033]"><X size={19} /></button>
         <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#EAF3FF] text-[#1746A2] ring-8 ring-[#F6F9FF]"><CheckCircle2 size={42} strokeWidth={1.8} /></div>
         <p className="mt-8 text-xs font-bold tracking-[0.16em] text-[#1746A2] uppercase">Application received</p>
-        <h2 id="application-success-title" className="mt-3 text-2xl font-bold tracking-tight text-[#172033] sm:text-3xl">You&apos;re all set.</h2>
-        <p className="mt-4 text-sm leading-6 text-[#667085] sm:text-base">Thank you for applying. Our team will review your application and reach out if your profile is a match.</p>
+        <h2 id="application-success-title" className="mt-3 text-2xl font-bold tracking-tight text-[#172033] sm:text-3xl">Check Your Email</h2>
+        <p className="mt-4 text-sm leading-6 text-[#667085] sm:text-base">Your application has been received, and a ScalePadi expert account has been created for you. Check your email for your login details and next steps.</p>
         <button type="button" onClick={onClose} className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#1746A2] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#12377E]">Done</button>
       </div>
     </div>
