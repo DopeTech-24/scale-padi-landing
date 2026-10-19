@@ -6,8 +6,10 @@ import {
   BriefcaseBusiness,
   CheckCircle2,
   Clock3,
+  ExternalLink,
   FolderKanban,
   Globe2,
+  GraduationCap,
   Loader2,
   MapPin,
   ShieldCheck,
@@ -26,6 +28,10 @@ type ExpertProfile = {
   marketingSummary: string | null;
   roles: string[];
   skills: string[];
+  professionalExperiences?: ProfessionalExperience[];
+  certificationsAndCourses?: CertificationAndCourse[];
+  education?: Education[];
+  toolsAndSoftwareProficiency?: string[];
   preferredIndustries: string[];
   yearsOfExperience: string | null;
   verifiedYearsOfExperience: string | null;
@@ -35,6 +41,39 @@ type ExpertProfile = {
   completedProjects: number | null;
   averageRating: number | null;
   ratingCount: number | null;
+};
+
+type Education = {
+  id?: string;
+  _id?: string;
+  degree?: string;
+  institution?: string;
+  fieldOfStudy?: string;
+  year?: string;
+};
+
+type ProfessionalExperience = {
+  id?: string;
+  _id?: string;
+  companyName?: string;
+  jobTitle?: string;
+  startDate?: string;
+  endDate?: string;
+  keyAchievements?: string[];
+};
+
+type CertificationAndCourse = {
+  id?: string;
+  _id?: string;
+  certificationName?: string;
+  issuingBody?: string;
+  name?: string;
+  title?: string;
+  issuer?: string;
+  institution?: string;
+  year?: string;
+  completionDate?: string;
+  credentialUrl?: string;
 };
 
 type ApiResponse = {
@@ -77,11 +116,15 @@ export default function SharedExpertPage() {
   if (state === "missing") return <PageShell><EmptyState title="This expert link is incomplete" description="Ask the person who shared this profile to send the full link." /></PageShell>;
   if (state === "error" || !profile) return <PageShell><EmptyState title="This expert profile is unavailable" description="The link may have expired or the profile is no longer public. Please try again later." /></PageShell>;
 
-  const experience = profile.experienceLevel || profile.yearsOfExperience || profile.experienceLevel || "Experience not specified";
+  const experience = profile.verifiedYearsOfExperience || profile.yearsOfExperience || profile.experienceLevel || "Experience not specified";
   const availability = profile.availability ? capitalise(profile.availability) : "Availability not specified";
   const roles = profile.roles || [];
   const skills = profile.skills || [];
+  const tools = profile.toolsAndSoftwareProficiency || [];
   const industries = profile.preferredIndustries || [];
+  const professionalExperiences = profile.professionalExperiences || [];
+  const education = profile.education || [];
+  const certifications = profile.certificationsAndCourses || [];
 
   return (
     <PageShell>
@@ -118,15 +161,24 @@ export default function SharedExpertPage() {
 
                 <div className="space-y-4">
                   <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
-                    <SectionTitle icon={BriefcaseBusiness}>Expertise</SectionTitle>
-                    <div className="mt-5"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#878A93]">Roles</p>{roles.length ? <div className="mt-3"><TagList values={roles} /></div> : <EmptyText>No roles listed yet.</EmptyText>}</div>
-                    <div className="mt-6 border-t border-[#EFF2F3] pt-5"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#878A93]">Core skills</p>{skills.length ? <div className="mt-3"><TagList values={skills} tone="orange" /></div> : <EmptyText>No skills listed yet.</EmptyText>}</div>
+                    <SectionTitle icon={BriefcaseBusiness}>Professional experience</SectionTitle>
+                    <div className="mt-6 space-y-6">
+                      {professionalExperiences.length ? professionalExperiences.map((item, index) => <ExperienceItem key={item.id || item._id || `${item.companyName}-${index}`} experience={item} />) : <EmptyText>No professional experience added yet.</EmptyText>}
+                    </div>
                   </section>
 
                   <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
-                    <SectionTitle icon={Award}>Work preferences</SectionTitle>
-                    <p className="mt-3 text-sm leading-6 text-[#667085]">This expert is particularly interested in opportunities within these industries.</p>
-                    {industries.length ? <div className="mt-5"><TagList values={industries} tone="neutral" /></div> : <EmptyText>No preferred industries listed yet.</EmptyText>}
+                    <SectionTitle icon={GraduationCap}>Education</SectionTitle>
+                    <div className="mt-5 space-y-4">
+                      {education.length ? education.map((item, index) => <EducationItem key={item.id || item._id || `${item.institution}-${index}`} education={item} />) : <EmptyText>No education details added yet.</EmptyText>}
+                    </div>
+                  </section>
+
+                  <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
+                    <SectionTitle icon={Award}>Certifications & courses</SectionTitle>
+                    <div className="mt-5 space-y-3">
+                      {certifications.length ? certifications.map((item, index) => <CertificationItem key={item.id || item._id || `${item.certificationName || item.name || item.title}-${index}`} certification={item} />) : <EmptyText>No certifications or courses added yet.</EmptyText>}
+                    </div>
                   </section>
                 </div>
 
@@ -138,6 +190,19 @@ export default function SharedExpertPage() {
                       <Detail icon={MapPin} label="Location" value={profile.country || "Not specified"} />
                       <Detail icon={CheckCircle2} label="Availability" value={availability} available={profile.availability?.toLowerCase() === "available"} />
                     </dl>
+                  </section>
+
+                  <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
+                    <SectionTitle icon={Wrench}>Skills & tools</SectionTitle>
+                    <div className="mt-5"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#878A93]">Skills</p>{skills.length ? <div className="mt-3"><TagList values={skills} /></div> : <EmptyText>No skills listed yet.</EmptyText>}</div>
+                    <div className="mt-6 border-t border-[#EFF2F3] pt-5"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#878A93]">Tools & software</p>{tools.length ? <div className="mt-3"><TagList values={tools} tone="orange" /></div> : <EmptyText>No tools or software listed yet.</EmptyText>}</div>
+                    <div className="mt-6 border-t border-[#EFF2F3] pt-5"><p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#878A93]">Roles</p>{roles.length ? <div className="mt-3"><TagList values={roles} tone="neutral" /></div> : <EmptyText>No roles listed yet.</EmptyText>}</div>
+                  </section>
+
+                  <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
+                    <SectionTitle icon={Target}>Work preferences</SectionTitle>
+                    <p className="mt-3 text-sm leading-6 text-[#667085]">This expert is particularly interested in opportunities within these industries.</p>
+                    {industries.length ? <div className="mt-5"><TagList values={industries} tone="neutral" /></div> : <EmptyText>No preferred industries listed yet.</EmptyText>}
                   </section>
 
                   <section className="rounded-2xl border border-[#D1DAEC80] bg-white p-5 sm:rounded-3xl sm:p-6">
@@ -173,6 +238,28 @@ function SectionTitle({ icon: Icon, children }: { icon: LucideIcon; children: Re
   return <h2 className="flex items-center gap-2.5 text-lg font-bold text-[#0E1426] sm:text-xl"><span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#ECF3FF] text-[#1746A2]"><Icon className="h-4 w-4" /></span>{children}</h2>;
 }
 
+function ExperienceItem({ experience }: { experience: ProfessionalExperience }) {
+  return <div className="relative border-l-2 border-[#D1DAEC] pl-5 last:border-transparent">
+    <span className="absolute -left-[5px] top-1 h-2 w-2 rounded-full bg-[#1746A2] ring-4 ring-[#ECF3FF]" />
+    <p className="font-semibold text-[#0E1426]">{experience.jobTitle || "Professional experience"}</p>
+    <p className="mt-1 text-sm font-medium text-[#1746A2]">{experience.companyName || "Company not specified"}</p>
+    <p className="mt-1.5 text-xs text-[#878A93]">{formatMonth(experience.startDate)} — {experience.endDate ? formatMonth(experience.endDate) : "Present"}</p>
+    {experience.keyAchievements?.length ? <ul className="mt-3 space-y-2 text-sm leading-6 text-[#4B5563]">{experience.keyAchievements.map((achievement) => <li key={achievement} className="flex gap-2"><CheckCircle2 className="mt-1 h-3.5 w-3.5 shrink-0 text-[#1746A2]" />{achievement}</li>)}</ul> : null}
+  </div>;
+}
+
+function EducationItem({ education }: { education: Education }) {
+  return <div className="rounded-xl bg-[#F8FAFD] p-4"><p className="font-semibold text-[#0E1426]">{education.degree || "Qualification"}{education.fieldOfStudy ? `, ${education.fieldOfStudy}` : ""}</p><p className="mt-1 text-sm text-[#3E4351]">{education.institution || "Institution not specified"}</p>{education.year && <p className="mt-1.5 text-xs text-[#878A93]">{education.year}</p>}</div>;
+}
+
+function CertificationItem({ certification }: { certification: CertificationAndCourse }) {
+  const title = certification.certificationName || certification.name || certification.title || "Certification";
+  const provider = certification.issuingBody || certification.issuer || certification.institution;
+  const date = certification.completionDate || certification.year;
+  const credentialUrl = normaliseUrl(certification.credentialUrl);
+  return <div className="flex items-start justify-between gap-3 rounded-xl border border-[#E5E8EB] p-4"><div><p className="font-semibold text-[#0E1426]">{title}</p>{provider && <p className="mt-1 text-sm text-[#3E4351]">{provider}</p>}{date && <p className="mt-1 text-xs text-[#878A93]">{date}</p>}</div>{credentialUrl && <a href={credentialUrl} target="_blank" rel="noreferrer" className="text-[#1746A2] hover:text-[#0D357B]"><ExternalLink className="h-4 w-4" /><span className="sr-only">Open credential</span></a>}</div>;
+}
+
 function TagList({ values, tone = "blue" }: { values: string[]; tone?: "blue" | "neutral" | "orange" }) {
   const styles = { blue: "bg-[#ECF3FF] text-[#1746A2]", neutral: "border border-[#D1DAEC] bg-white text-[#3E4351]", orange: "bg-[#FFF0E8] text-[#C2410C]" };
   return <div className="flex flex-wrap gap-2">{values.map((value) => <span key={value} className={`rounded-full px-3 py-1.5 text-xs font-medium ${styles[tone]}`}>{value}</span>)}</div>;
@@ -188,6 +275,22 @@ function Detail({ icon: Icon, label, value, available = false }: { icon: LucideI
 
 function ActivityStat({ icon: Icon, label, value }: { icon: LucideIcon; label: string; value: string }) {
   return <div className="rounded-xl bg-[#FBFCFC] p-3"><Icon className="h-4 w-4 text-[#1746A2]" /><p className="mt-3 text-xl font-bold text-[#0E1426]">{value}</p><p className="mt-1 text-[11px] leading-4 text-[#878A93]">{label}</p></div>;
+}
+
+function formatMonth(value?: string) {
+  if (!value) return "Not specified";
+  if (/^\d{4}-\d{2}$/.test(value)) {
+    const [year, month] = value.split("-");
+    return new Intl.DateTimeFormat("en", { month: "short", year: "numeric" }).format(new Date(Number(year), Number(month) - 1));
+  }
+  return value;
+}
+
+function normaliseUrl(value?: string) {
+  if (!value) return "";
+  const markdownUrl = value.match(/\]\((https?:\/\/[^)]+)\)/)?.[1];
+  const url = markdownUrl || value;
+  return /^https?:\/\//i.test(url) ? url : "";
 }
 
 function capitalise(value: string) { return value.charAt(0).toUpperCase() + value.slice(1); }
