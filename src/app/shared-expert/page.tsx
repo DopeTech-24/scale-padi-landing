@@ -25,7 +25,7 @@ const API_BASE_URL = "https://scale-padi-xc76.onrender.com/api/v1";
 
 type ExpertProfile = {
   headline: string | null;
-  marketingSummary: string | null;
+  bio: string | null;
   roles: string[];
   skills: string[];
   professionalExperiences?: ProfessionalExperience[];
@@ -156,7 +156,7 @@ export default function SharedExpertPage() {
               <div className="grid gap-4 lg:grid-cols-[minmax(0,1.45fr)_minmax(290px,0.8fr)] lg:gap-6">
                 <section className="rounded-2xl border border-[#D1DAEC80] bg-[#FBFCFC] p-5 sm:rounded-3xl sm:p-7 lg:col-span-2">
                   <SectionTitle icon={Sparkles}>Professional summary</SectionTitle>
-                  <p className="mt-4 max-w-5xl text-sm leading-7 text-[#353D44] sm:text-[15px]">{profile.marketingSummary || "This expert has not added a professional summary yet."}</p>
+                  <p className="mt-4 max-w-5xl text-sm leading-7 text-[#353D44] sm:text-[15px]">{profile.bio || "This expert has not added a professional summary yet."}</p>
                 </section>
 
                 <div className="space-y-4">
