@@ -102,6 +102,43 @@ select option {
   color: #172033;
 }
 
+button[data-submitting] {
+  position: relative;
+  min-width: 12rem;
+  pointer-events: none;
+  color: transparent !important;
+}
+
+button[data-submitting]::before {
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  left: calc(50% - 4.8rem);
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 9999px;
+  animation: submit-spinner 0.7s linear infinite;
+}
+
+button[data-submitting]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  content: "Submitting request…";
+  transform: translate(-34%, -50%);
+}
+
+@keyframes submit-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
