@@ -120,17 +120,18 @@ export default function AcademyId() {
 
 				<p className="text-[#878A93] leading-6">{course.description}</p>
 
-				<div className="flex flex-wrap items-center gap-6">
-					<a
-						href={course.link}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
+				{!course.isComingSoon && (
+					<div className="flex flex-wrap items-center gap-6">
+						<a
+							href={course.link}
+							target="_blank"
+							rel="noopener noreferrer"
+						>
 						<Button
 							className="bg-[#1746A2] text-white px-5 py-2 rounded-lg text-sm font-semibold hover:bg-[#123c8d] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#123c8d]"
 							aria-label={`Apply now for ${course.title}`}
 						>
-							Apply Now
+							Buy Course
 							<ArrowRight className="ml-2" />
 						</Button>
 					</a>
@@ -141,7 +142,18 @@ export default function AcademyId() {
 					>
 						View Curriculum
 					</a>
-				</div>
+				</div>)}
+				{course.isComingSoon && (
+					<div className="flex flex-wrap items-center gap-6">
+						<Button
+							className="bg-[#1746A2] text-white px-5 py-2 rounded-lg text-sm font-semibold cursor-not-allowed"
+							disabled
+							aria-label={`Course ${course.title} is coming soon`}
+						>
+							Course Coming Soon
+						</Button>
+					</div>
+				)}
 
 				<div
 					className="flex text-yellow-500"

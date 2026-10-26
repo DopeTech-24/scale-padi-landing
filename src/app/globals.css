@@ -76,6 +76,69 @@ html, body {
   padding: 0;
 }
 
+/* Branded native select treatment: retains keyboard and browser validation support. */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  padding-right: 3rem !important;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m5.5 7.5 4.5 4.5 4.5-4.5' stroke='%231746A2' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+}
+
+select:hover {
+  border-color: #8dace0;
+}
+
+select:focus {
+  background-color: #fafdff;
+}
+
+select option {
+  background: #fff;
+  color: #172033;
+}
+
+button[data-submitting] {
+  position: relative;
+  min-width: 12rem;
+  pointer-events: none;
+  color: transparent !important;
+}
+
+button[data-submitting]::before {
+  position: absolute;
+  top: calc(50% - 0.5rem);
+  left: calc(50% - 4.8rem);
+  width: 1rem;
+  height: 1rem;
+  content: "";
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  border-top-color: #fff;
+  border-radius: 9999px;
+  animation: submit-spinner 0.7s linear infinite;
+}
+
+button[data-submitting]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  content: "Submitting request…";
+  transform: translate(-34%, -50%);
+}
+
+@keyframes submit-spinner {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes scroll-left {
   0% {
     transform: translateX(0);

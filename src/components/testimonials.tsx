@@ -217,9 +217,12 @@ const Testimonials = ({ filterBy }: { filterBy: string }) => {
 				<motion.span className="font-bold text-2xl lg:text-5xl">
 					Testimonials
 				</motion.span>
-				<motion.span className="md:text-base text-sm text-center">
-					Here are what our customer and talent are saying
-				</motion.span>
+				{filterBy === "ScalePadi Academy" && <motion.span className="md:text-base text-sm text-center">
+					Here are what our students are saying
+				</motion.span>}
+				{filterBy === "others" && <motion.span className="md:text-base text-sm text-center">
+					Here is what businesses are saying
+				</motion.span>}
 			</motion.div>
 
 			{/* Controls */}

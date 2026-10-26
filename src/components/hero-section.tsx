@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -78,12 +78,32 @@ export default function HeroSection() {
 					transition={{ delay: 0.4, duration: 0.6 }}
 					className="text-xs md:text-sm text-center text-[#1A1A1A]"
 				>
-					Identify challenges, get expert-backed strategies, hire, and
-					scale efficiently all on one platform.
+					Find talent from vetted pool, get AI-powered support, or let ScalePadi handle the entire hiring, all in one platform. 
 				</motion.p>
 
+				<motion.a
+					href="https://forms.gle/9aMMdW8ruxjGr2647"
+					target="_blank"
+					rel="noopener noreferrer"
+					initial={{ opacity: 0, y: 12 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					whileHover={{ scale: 1.02, boxShadow: "0px 16px 32px rgba(234, 88, 12, 0.32)" }}
+					whileTap={{ scale: 0.98 }}
+					className="group relative mt-1 flex w-full items-center justify-between gap-4 overflow-hidden rounded-2xl bg-linear-to-r from-[#F97316] via-[#EA580C] to-[#C2410C] px-4 py-3 text-left text-white shadow-[0_10px_24px_rgba(234,88,12,0.25)] transition-shadow sm:px-5"
+				>
+					<span className="absolute -right-10 -top-16 h-36 w-36 rounded-full bg-[#FDBA74]/35 blur-xl" />
+					<span className="absolute inset-0 -translate-x-full bg-linear-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+					<span className="relative flex min-w-0 items-center gap-3">
+						<span className="grid size-10 shrink-0 place-items-center rounded-xl bg-white/20"><BriefcaseBusiness className="size-5" /></span>
+						<span><span className="block text-sm font-bold sm:text-base">Hire a Sales Intern</span><span className="block text-[11px] text-orange-50 sm:text-xs">Grow your sales team with fresh, motivated talent.</span></span>
+					</span>
+					<span className="relative inline-flex shrink-0 items-center gap-1 rounded-lg bg-white px-3 py-2 text-xs font-bold text-[#C2410C] transition-colors group-hover:bg-orange-50">Get started <ArrowRight className="size-4" /></span>
+				</motion.a>
+
 				{/* CTA Buttons */}
-				<div className="buttons flex items-center gap-3 justify-center mt-4">
+				<div className="buttons flex flex-wrap items-center gap-3 justify-center mt-4">
+
 					<motion.button
 						whileHover={{
 							scale: 1.05,

@@ -11,21 +11,21 @@ import GetStartedDropdown from "./getstarted";
 
 const steps = [
 	{
-		title: "AI-Powered Analysis",
+		title: "Find Talent",
 		description:
-			"Share your growth challenge. Our AI analyses it in minutes, pinpointing key bottlenecks.",
+			"Browse through profiles of verified experts and connect directly.",
 		video: "/videos/how-works1.mp4",
 	},
 	{
-		title: "Get tailored growth engine",
+		title: "Ask ScalePadi AI",
 		description:
-			"Receive a vetted strategy and recommended experts, tools, activated within 72 hours.",
+			"Get AI-powered recommendations on the right strategy and team to execute.",
 		video: "/videos/how-works2.mp4",
 	},
 	{
-		title: "Growth Execution & Tracking",
+		title: "Hire for Me",
 		description:
-			"Implement with your dedicated Growth Engineer and track real-time results.",
+			"Let ScalePadi’s team source, screen, and handle the whole hiring process for you.",
 		video: "/videos/how-works3.mp4",
 	},
 ];
@@ -63,7 +63,7 @@ export default function HowItWorks() {
 					className="text-3xl lg:text-5xl font-extrabold text-gray-900 mb-6"
 				>
 					<span className="inline-block bg-clip-text text-transparent bg-linear-to-r from-[#1746A2] to-[#FCCE37] animate-gradient-x">
-						How ScalePadi Works
+						Three simple ways to access growth talents
 					</span>
 				</motion.h2>
 

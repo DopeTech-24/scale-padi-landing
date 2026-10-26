@@ -55,9 +55,9 @@ export const WhyChoose = () => {
             Why Choose <span className="text-[#1746A2]">ScalePadi</span>
         </MotionText>
         <MotionText
-          text="Experience the difference with our innovative approach to business growth."
+          text="More than hiring, we're your growth partner. Find the right talent faster with flexible hiring options, AI-powered recommendations, and dedicated support."
           variants={fadeIn}
-          className="md:text-base text-sm text-[#837a7a]"
+          className="md:text-base w-1/2 text-sm text-[#837a7a]"
         />
       </div>
 

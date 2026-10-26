@@ -3,18 +3,30 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { CheckCircle2, FileText, Loader2, Upload, X } from "lucide-react";
 
-const API_URL = "https://scale-padi-test.onrender.com/api/v1/offline-recruitment";
+const API_URL = "https://scale-padi-xc76.onrender.com/api/v1/offline-recruitment";
+
+type ApiResponse = {
+  status?: boolean;
+  message?: string;
+};
 
 const inputClass =
   "mt-2 min-h-12 w-full rounded-xl border border-[#D9E0ED] bg-white px-4 py-3 text-base text-[#172033] outline-none transition placeholder:text-[#98A2B3] focus:border-[#1746A2] focus:ring-4 focus:ring-[#1746A2]/10 sm:text-sm";
 
 export default function JobApplyPage() {
   const [resume, setResume] = useState<File | null>(null);
+  const [expectedSalary, setExpectedSalary] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleResumeChange = (event: ChangeEvent<HTMLInputElement>) => {
     setResume(event.target.files?.[0] ?? null);
+  };
+
+  const handleExpectedSalaryChange = (event: ChangeEvent<HTMLInputElement>) => {
+    // Keep the form value numeric; commas are only for the input's presentation.
+    setExpectedSalary(event.target.value.replace(/\D/g, ""));
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -27,18 +39,26 @@ export default function JobApplyPage() {
     }
 
     setStatus("idle");
+    setErrorMessage("");
     setIsSubmitting(true);
 
     const formData = new FormData(form);
+    formData.set("expectedSalaryRange", expectedSalary);
     // Browsers already include the selected file under the `resume` field name.
     try {
       const response = await fetch(API_URL, { method: "POST", body: formData });
-      if (!response.ok) throw new Error("Application could not be submitted");
+      const result = await response.json().catch(() => null) as ApiResponse | null;
+
+      if (!response.ok || result?.status === false) {
+        throw new Error(result?.message || "Application could not be submitted. Please try again.");
+      }
 
       form.reset();
       setResume(null);
+      setExpectedSalary("");
       setStatus("success");
-    } catch {
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Application could not be submitted. Please try again.");
       setStatus("error");
     } finally {
       setIsSubmitting(false);
@@ -101,7 +121,7 @@ export default function JobApplyPage() {
           <section className="mt-8 sm:mt-10" aria-labelledby="expectations">
             <SectionTitle id="expectations" number="04" title="Availability & expectations" />
             <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
-              <Field label="Expected salary range" required><input name="expectedSalaryRange" required placeholder="e.g. NGN 500,000 – 700,000 monthly" className={inputClass} /></Field>
+              <Field label="Expected salary range" required><input name="expectedSalaryRange" required inputMode="numeric" value={formatAmount(expectedSalary)} onChange={handleExpectedSalaryChange} placeholder="e.g. 500,000" className={inputClass} /></Field>
               <Field label="How did you hear about this opportunity?"><select name="source" defaultValue="" className={inputClass}><option value="" disabled>Select a source</option><option value="Referral">Referral</option><option value="LinkedIn">LinkedIn</option><option value="X">X</option><option value="Instagram">Instagram</option><option value="ScalePadi Website">ScalePadi Website</option><option value="Other">Other</option></select></Field>
             </div>
           </section>
@@ -110,18 +130,18 @@ export default function JobApplyPage() {
             <h2 id="consent" className="text-lg font-bold text-[#172033]">Consent</h2>
             <label className="mt-4 flex cursor-pointer items-start gap-3 text-sm leading-6 text-[#475467]">
               <input name="terms" value="true" type="checkbox" required className="mt-1 h-4 w-4 rounded border-[#98A2B3] accent-[#1746A2]" />
-              <span>I agree to ScalePadi&apos;s Terms of Use and Privacy Policy. Read our terms <a href="https://docs.google.com/document/d/1WGUxL5t5csSnRGi1LMOCdMnIBvKj9co3acBz3Weh2xM/edit?usp=drive_link" target="_blank" rel="noreferrer" className="font-semibold text-[#1746A2] underline underline-offset-2">here</a>. <RequiredMark /></span>
+              <span>I agree to ScalePadi&apos;s Terms of Use and Privacy Policy. Read our terms <a href="/terms&conditions" rel="noreferrer" className="font-semibold text-[#1746A2] underline underline-offset-2">here</a>. <RequiredMark /></span>
             </label>
           </section>
 
-          {status === "success" && <StatusMessage type="success" message="Your application has been submitted. We’ll be in touch if there’s a match." />}
-          {status === "error" && <StatusMessage type="error" message="We couldn’t submit your application. Please check your connection and try again." />}
+          {status === "error" && <StatusMessage type="error" message={errorMessage} />}
 
           <button type="submit" disabled={isSubmitting} className="mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1746A2] px-6 py-3.5 text-base font-bold text-white transition hover:bg-[#12377E] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:text-sm">
             {isSubmitting ? <><Loader2 size={18} className="animate-spin" /> Submitting application...</> : "Submit Application"}
           </button>
         </form>
       </div>
+      {status === "success" && <SuccessModal onClose={() => setStatus("idle")} />}
     </main>
   );
 }
@@ -135,6 +155,26 @@ function Field({ label, hint, required, children }: { label: string; hint?: stri
 }
 
 function RequiredMark() { return <span className="text-[#D92D20]">*</span>; }
+
+function formatAmount(value: string) {
+  return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function SuccessModal({ onClose }: { onClose: () => void }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#071B3F]/60 p-5 backdrop-blur-sm" role="presentation" onMouseDown={onClose}>
+      <div role="dialog" aria-modal="true" aria-labelledby="application-success-title" className="relative w-full max-w-md overflow-hidden rounded-3xl bg-white p-7 text-center shadow-[0_24px_80px_rgba(7,27,63,0.28)] sm:p-10" onMouseDown={(event) => event.stopPropagation()}>
+        <div className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-[#1746A2] via-[#4D86E7] to-[#1746A2]" />
+        <button type="button" onClick={onClose} aria-label="Close confirmation" className="absolute right-4 top-4 grid h-9 w-9 place-items-center rounded-full text-[#667085] transition hover:bg-[#F2F4F7] hover:text-[#172033]"><X size={19} /></button>
+        <div className="mx-auto grid h-20 w-20 place-items-center rounded-full bg-[#EAF3FF] text-[#1746A2] ring-8 ring-[#F6F9FF]"><CheckCircle2 size={42} strokeWidth={1.8} /></div>
+        <p className="mt-8 text-xs font-bold tracking-[0.16em] text-[#1746A2] uppercase">Application received</p>
+        <h2 id="application-success-title" className="mt-3 text-2xl font-bold tracking-tight text-[#172033] sm:text-3xl">Check Your Email</h2>
+        <p className="mt-4 text-sm leading-6 text-[#667085] sm:text-base">Your application has been received, and a ScalePadi expert account has been created for you. Check your email for your login details and next steps.</p>
+        <button type="button" onClick={onClose} className="mt-8 inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-[#1746A2] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#12377E]">Done</button>
+      </div>
+    </div>
+  );
+}
 
 function StatusMessage({ type, message }: { type: "success" | "error"; message: string }) {
   const success = type === "success";

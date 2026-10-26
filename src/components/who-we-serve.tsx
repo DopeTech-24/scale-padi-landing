@@ -100,9 +100,7 @@ export const WhoWeServe = () => {
 					variants={textFade}
 					className="md:text-base text-sm text-center"
 				>
-					ScalePadi bridges the gap between businesses needing to
-					scale and the experts who make it happen, all powered by AI
-					precision.
+					Whether you're a business looking for experts or a talent looking for opportunities, ScalePadi bridges the gap between businesses and qualified growth talents fast.
 				</motion.span>
 			</motion.div>
 
@@ -117,19 +115,19 @@ export const WhoWeServe = () => {
 					{
 						title: "For Startups & SMEs",
 						description:
-							"Break through growth ceilings with tailored strategies and vetted talent, no more guesswork.",
+							"Hire vetted growth experts, explore qualified talent profiles, or get AI-powered guidance to find the right talent for your business.",
 						icon: "/images/we-serve1.svg",
 					},
 					{
 						title: "For Growth Experts",
 						description:
-							"Find high-impact projects that match your skills and accelerate your career trajectory.",
+							"Create your expert profile, complete verification, and start receiving opportunities that match your skills and experience.",
 						icon: "/images/we-serve2.svg",
 					},
 					{
 						title: "For Investors & Partners",
 						description:
-							"Discover and support high-potential businesses backed by data-driven growth plans.",
+							"Discover high-growth businesses, explore partnership opportunities, and support the growth of Africa's next generation of businesses.",
 						icon: "/images/we-serve3.svg",
 					},
 				].map((item, i) => (
